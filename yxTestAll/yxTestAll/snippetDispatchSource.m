@@ -37,7 +37,8 @@
     [self.view setAutoresizesSubviews:YES];
     [_output setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     
-    [[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(_timerDo:) userInfo:nil repeats:YES] fire];
+    [[NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(_timerDo:) userInfo:nil repeats:YES] fire];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,20 +48,22 @@
 }
 
 -(void)_timerDo:(NSTimer *)timer{
-    NSString* text = [_output text];
-    text = [text stringByAppendingString:@"abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrstuvwxyz1234567890\n"];
-    [_output setText:text];
+    
+    static NSUInteger times = 0;
+    
+//    if (times > 50) {
+//        return;
+//    }
+    
+    NSString* testSnip = @"";
+    for (int i=0; i<=15; i++) {
+        testSnip = [testSnip stringByAppendingString:[NSString stringWithFormat:@"%ld, ", times]];
+    }
+    
+    [_output testLog:testSnip];
+    
+    times++;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
