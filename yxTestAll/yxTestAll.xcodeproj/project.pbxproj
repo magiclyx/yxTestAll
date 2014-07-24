@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		670B5D641980FD9700C1AA98 /* GCDGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 670B5D631980FD9700C1AA98 /* GCDGeneralViewController.m */; };
+		670B5D67198102A700C1AA98 /* logViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 670B5D66198102A700C1AA98 /* logViewController.m */; };
 		671154C81950395A00A2EE17 /* skinManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 671154C71950395A00A2EE17 /* skinManager.m */; };
 		671154CF19503A7E00A2EE17 /* Environment.m in Sources */ = {isa = PBXBuildFile; fileRef = 671154CE19503A7E00A2EE17 /* Environment.m */; };
 		671154D219505DDB00A2EE17 /* tomorrow_background@920.png in Resources */ = {isa = PBXBuildFile; fileRef = 671154D019505DDB00A2EE17 /* tomorrow_background@920.png */; };
@@ -40,6 +42,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		670B5D621980FD9700C1AA98 /* GCDGeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGeneralViewController.h; sourceTree = "<group>"; };
+		670B5D631980FD9700C1AA98 /* GCDGeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGeneralViewController.m; sourceTree = "<group>"; };
+		670B5D65198102A700C1AA98 /* logViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logViewController.h; sourceTree = "<group>"; };
+		670B5D66198102A700C1AA98 /* logViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = logViewController.m; sourceTree = "<group>"; };
 		671154C61950395A00A2EE17 /* skinManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = skinManager.h; sourceTree = "<group>"; };
 		671154C71950395A00A2EE17 /* skinManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = skinManager.m; sourceTree = "<group>"; };
 		671154CD19503A7E00A2EE17 /* Environment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Environment.h; sourceTree = "<group>"; };
@@ -108,17 +114,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		670B5D681981057200C1AA98 /* logController */ = {
+			isa = PBXGroup;
+			children = (
+				67684CC9196AFBA30036F5C7 /* outputView.h */,
+				67684CCA196AFBA30036F5C7 /* outputView.m */,
+				670B5D65198102A700C1AA98 /* logViewController.h */,
+				670B5D66198102A700C1AA98 /* logViewController.m */,
+			);
+			name = logController;
+			sourceTree = "<group>";
+		};
 		671154B01950246200A2EE17 /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				670B5D681981057200C1AA98 /* logController */,
 				671154C61950395A00A2EE17 /* skinManager.h */,
 				671154C71950395A00A2EE17 /* skinManager.m */,
 				671154CD19503A7E00A2EE17 /* Environment.h */,
 				671154CE19503A7E00A2EE17 /* Environment.m */,
 				673082D219541A080049CED2 /* TestListController.h */,
 				673082D319541A080049CED2 /* TestListController.m */,
-				67684CC9196AFBA30036F5C7 /* outputView.h */,
-				67684CCA196AFBA30036F5C7 /* outputView.m */,
 			);
 			name = tool;
 			sourceTree = "<group>";
@@ -257,6 +273,8 @@
 			children = (
 				67684CC6196AF73D0036F5C7 /* snippetDispatchSource.h */,
 				67684CC7196AF73D0036F5C7 /* snippetDispatchSource.m */,
+				670B5D621980FD9700C1AA98 /* GCDGeneralViewController.h */,
+				670B5D631980FD9700C1AA98 /* GCDGeneralViewController.m */,
 			);
 			name = GCD;
 			sourceTree = "<group>";
@@ -413,10 +431,12 @@
 				674852FE194EED5500AD58C2 /* tomorrowScrollViewController.m in Sources */,
 				675A00C619499A710043EC35 /* rootNavigationController.m in Sources */,
 				67378CD819653AC8002E6BA4 /* ctRunDelegateViewController.m in Sources */,
+				670B5D67198102A700C1AA98 /* logViewController.m in Sources */,
 				67FB939C1949CAF800CA43AB /* rootTableController.m in Sources */,
 				67684CCB196AFBA30036F5C7 /* outputView.m in Sources */,
 				67EFA21019533B69004CF41E /* cameraPickerController.m in Sources */,
 				671154C81950395A00A2EE17 /* skinManager.m in Sources */,
+				670B5D641980FD9700C1AA98 /* GCDGeneralViewController.m in Sources */,
 				675A00C319499A570043EC35 /* rootViewController.m in Sources */,
 				675A009F19499A200043EC35 /* main.m in Sources */,
 				67298F8F1949B72C007A8C83 /* rootNavigationSettingController.m in Sources */,

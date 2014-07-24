@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface outputView : UITextView
-- (void)testLog:(NSString*)log;
+- (void)log:(NSString*)log;
 @end

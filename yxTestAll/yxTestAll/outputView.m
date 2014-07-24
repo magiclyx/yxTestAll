@@ -12,6 +12,8 @@ static const CGFloat outputView_autoScroll_timeInterval = 3.0f;
 
 
 @interface outputView()<UITextViewDelegate>{
+    
+    BOOL _lockedAutoScroll;
     BOOL _autoScrollToEnd;
     NSDate *_timeStamp;
 }
@@ -20,8 +22,13 @@ static const CGFloat outputView_autoScroll_timeInterval = 3.0f;
 
 - (void)_scrollToEndIfNeed;
 
-- (void)_resetTimeCounter;
-- (void)_stopTimeCounter;
+
+- (void)_resetTimeCounter:(BOOL)forceUnlocked;
+- (void)_pauseTimerCounter:(BOOL)locked;
+
+
+- (void)_setAutoScrollFlag;
+- (void)_removeAutoScrollFlag;
 
 @end
 
@@ -30,27 +37,32 @@ static const CGFloat outputView_autoScroll_timeInterval = 3.0f;
 @synthesize autoScrollToEnd = _autoScrollToEnd;
 
 
-- (void)testLog:(NSString*)log{
+- (void)log:(NSString*)log{
     NSString* str = [self text];
     str = [str stringByAppendingFormat:@"%@\n", log];
     [self setText:str];
     
-    
     [self _scrollToEndIfNeed];
-
 }
 
 
 #pragma delegate
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    [self _stopTimeCounter];
+    [self _pauseTimerCounter:NO];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    [self _resetTimeCounter];
+    [self _resetTimeCounter:NO];
 }
 
+//- (void)textViewDidBeginEditing:(UITextView *)textView{
+//    [self _pauseTimerCounter:YES];
+//}
+//
+//- (void)textViewDidEndEditing:(UITextView *)textView{
+//    [self _pauseTimerCounter:NO];
+//}
 
 
 #pragma mark lifecycle
@@ -67,6 +79,10 @@ static const CGFloat outputView_autoScroll_timeInterval = 3.0f;
         
         [self setBackgroundColor:[UIColor blackColor]];
         [self setTextColor:[UIColor whiteColor]];
+        
+        /*Temporarily does not support ediwt*/
+        _lockedAutoScroll = NO;
+        [self setEditable:NO];
     }
     return self;
 }
@@ -75,9 +91,10 @@ static const CGFloat outputView_autoScroll_timeInterval = 3.0f;
 #pragma mark privat
 - (void)_scrollToEndIfNeed{
     
-    if (NO ==  [self autoScrollToEnd]) {
+    
+    if (NO ==  [self autoScrollToEnd])
         return;
-    }
+    
     
     CGPoint contentOffsetPoint = self.contentOffset;
     CGSize frameSize = self.frame.size;
@@ -91,18 +108,39 @@ static const CGFloat outputView_autoScroll_timeInterval = 3.0f;
     }
 }
 
-- (void)_resetTimeCounter{
+- (void)_resetTimeCounter:(BOOL)forceUnlocked{
     
-    [self setAutoScrollToEnd:YES];
+    if (NO == forceUnlocked) {
+        if (YES == _lockedAutoScroll)
+            return;
+    }
+    else{
+        if (YES == _lockedAutoScroll)
+            _lockedAutoScroll = NO;
+    }
     
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(_scrollToEndIfNeed) object:nil];
-    [self performSelector:@selector(_scrollToEndIfNeed) withObject:nil afterDelay:outputView_autoScroll_timeInterval];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(_setAutoScrollFlag) object:nil];
+    [self performSelector:@selector(_setAutoScrollFlag) withObject:nil afterDelay:outputView_autoScroll_timeInterval];
+    
 }
-- (void)_stopTimeCounter{
+- (void)_pauseTimerCounter:(BOOL)locked{
+    
+    _lockedAutoScroll = locked;
+    
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(_setAutoScrollFlag) object:nil];
     
    [self setAutoScrollToEnd:NO];
     
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(_scrollToEndIfNeed) object:nil];
+}
+
+
+
+- (void)_setAutoScrollFlag{
+    [self setAutoScrollToEnd:YES];
+}
+- (void)_removeAutoScrollFlag{
+    [self setAutoScrollToEnd:NO];
 }
 
 @end
+

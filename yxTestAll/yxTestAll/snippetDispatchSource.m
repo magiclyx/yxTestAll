@@ -37,8 +37,8 @@
     [self.view setAutoresizesSubviews:YES];
     [_output setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     
-    [[NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(_timerDo:) userInfo:nil repeats:YES] fire];
-    
+//    [[NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(_timerDo:) userInfo:nil repeats:YES] fire];
+//    
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,22 +47,26 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)_timerDo:(NSTimer *)timer{
-    
-    static NSUInteger times = 0;
-    
-//    if (times > 50) {
-//        return;
+//-(void)_timerDo:(NSTimer *)timer{
+//    
+//    static NSUInteger times = 0;
+//    
+//    NSString* testSnip = @"";
+//    for (int i=0; i<=15; i++) {
+//        testSnip = [testSnip stringByAppendingString:[NSString stringWithFormat:@"%ld, ", times]];
 //    }
+//    
+//    [_output testLog:testSnip];
+//    
+//    times++;
+//}
+
+
+-(void)dealloc{
     
-    NSString* testSnip = @"";
-    for (int i=0; i<=15; i++) {
-        testSnip = [testSnip stringByAppendingString:[NSString stringWithFormat:@"%ld, ", times]];
-    }
+    [_output release], _output = nil;
     
-    [_output testLog:testSnip];
-    
-    times++;
+    [super dealloc];
 }
 
 

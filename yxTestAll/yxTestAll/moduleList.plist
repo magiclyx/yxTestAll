@@ -150,6 +150,16 @@
 					<array>
 						<dict>
 							<key>class</key>
+							<string>GCDGeneralViewController</string>
+							<key>key</key>
+							<string>GCDGeneralViewController</string>
+							<key>title</key>
+							<string>general use</string>
+							<key>type</key>
+							<string>showcase</string>
+						</dict>
+						<dict>
+							<key>class</key>
 							<string>snippetDispatchSource</string>
 							<key>key</key>
 							<string>snippetDispatchSource</string>

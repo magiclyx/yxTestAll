@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "logViewController.h"
 
-@interface GCDGeneralViewController : UIViewController
-
+@interface GCDGeneralViewController : logViewController
 @end
