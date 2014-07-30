@@ -8,6 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  保存每行要绘制的上下文
+ */
 @interface logItem : NSObject
+
++ (id)itemWithText:(NSString*)text;
+
+@property(readwrite, retain, nonatomic) NSString* text;
+@property(readwrite, assign) CGSize textSize;
+@property(readonly, retain, nonatomic) NSDictionary* attributeDict;
+
+@property(readwrite, retain) UIColor* backgroundColor;
 
 @end

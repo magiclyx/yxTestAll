@@ -8,23 +8,52 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^logWorkingBlock)(void);
-typedef void (^logGroupBlock)(void);
-typedef void (^logTaskBlock)(void);
+@class logViewTaskContext;
+
+
+typedef void (^logTaskBlock)(logViewTaskContext*);
+typedef void* logViewSemaphoreHandle;
+
+
+
+@interface logViewTaskContext: NSObject
+- (void) setOperationSemahoreNum:(int)num;
+- (void) barrierFinishOnQueue:(dispatch_queue_t)queue; //just working on async and custom queue
+
+@property(readwrite, retain, nonatomic) id userInfo;
+
+@end
+
+
+
+
+
 
 @interface logViewController : UIViewController
 
 @property(readwrite, assign) BOOL shouldIntervalInDifferentTask;
 @property(readwrite, assign) CGFloat intervalPerTask;
 
-- (void)startWithName:(NSString *)name andWorkingBlock:(logWorkingBlock)block;
-- (void)rest;
+- (void)startWithName:(NSString *)name andWorkingBlock:(void (^)(void))block;
+- (void)reset;
 
-- (void)groupWithName:(NSString *)name andGroupblock:(logGroupBlock)block;
+- (void)groupWithName:(NSString *)name andGroupblock:(void (^)(void))block;
 
 - (void)runTask:(NSString *)taskName withSelector:(SEL)selector withObject:(id)object;
 - (void)runTask:(NSString *)taskName withTaskBlock:(logTaskBlock)block;
 
 - (void)log:(NSString *)msg;
+- (void)log:(NSString *)msg onOperation:(logViewTaskContext *)context;
+- (void)separateBar;
+
 
 @end
+
+
+
+
+
+
+
+
+

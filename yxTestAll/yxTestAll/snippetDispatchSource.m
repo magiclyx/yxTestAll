@@ -7,10 +7,8 @@
 //
 
 #import "snippetDispatchSource.h"
-#import "outputView.h"
 
 @interface snippetDispatchSource (){
-    outputView* _output;
 }
 -(void)_timerDo:(NSTimer *)timer;
 @end
@@ -32,10 +30,6 @@
     //[self.view setBackgroundColor:[UIColor redColor]];
     // Do any additional setup after loading the view.
     
-    _output = [[outputView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:_output];
-    [self.view setAutoresizesSubviews:YES];
-    [_output setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     
 //    [[NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(_timerDo:) userInfo:nil repeats:YES] fire];
 //    
@@ -63,8 +57,6 @@
 
 
 -(void)dealloc{
-    
-    [_output release], _output = nil;
     
     [super dealloc];
 }

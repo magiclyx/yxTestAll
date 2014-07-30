@@ -20,6 +20,7 @@
 		67378CD819653AC8002E6BA4 /* ctRunDelegateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67378CD719653AC8002E6BA4 /* ctRunDelegateViewController.m */; };
 		67378CDB19653EB2002E6BA4 /* d_aini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67378CDA19653EB2002E6BA4 /* d_aini@2x.png */; };
 		67378CDD19654087002E6BA4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67378CDC19654087002E6BA4 /* CoreText.framework */; };
+		673D17431987B0B600692133 /* logItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 673D17421987B0B600692133 /* logItem.m */; };
 		674852FE194EED5500AD58C2 /* tomorrowScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 674852FD194EED5500AD58C2 /* tomorrowScrollViewController.m */; };
 		67485300194EEEDE00AD58C2 /* moduleList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 674852FF194EEEDE00AD58C2 /* moduleList.plist */; };
 		675A009319499A200043EC35 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675A009219499A200043EC35 /* Foundation.framework */; };
@@ -32,12 +33,13 @@
 		675A00C319499A570043EC35 /* rootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 675A00C219499A570043EC35 /* rootViewController.m */; };
 		675A00C619499A710043EC35 /* rootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 675A00C519499A710043EC35 /* rootNavigationController.m */; };
 		67684CC8196AF73D0036F5C7 /* snippetDispatchSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67684CC7196AF73D0036F5C7 /* snippetDispatchSource.m */; };
-		67684CCB196AFBA30036F5C7 /* outputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67684CCA196AFBA30036F5C7 /* outputView.m */; };
 		6780AD6F1952D36400596708 /* zoomScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780AD6E1952D36400596708 /* zoomScrollViewController.m */; };
 		6780AD761952F09F00596708 /* customScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780AD751952F09E00596708 /* customScrollViewController.m */; };
 		67EFA21019533B69004CF41E /* cameraPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFA20F19533B69004CF41E /* cameraPickerController.m */; };
 		67EFA21419534472004CF41E /* AuthorizationStateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFA21319534472004CF41E /* AuthorizationStateController.m */; };
 		67F6177619645F4E00B41FD2 /* attributeStringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F6177519645F4E00B41FD2 /* attributeStringViewController.m */; };
+		67FB297E198625C3007A425C /* logView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FB297D198625C3007A425C /* logView.m */; };
+		67FB299319865C19007A425C /* logLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FB299219865C19007A425C /* logLineView.m */; };
 		67FB939C1949CAF800CA43AB /* rootTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FB939B1949CAF800CA43AB /* rootTableController.m */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,8 @@
 		67378CD719653AC8002E6BA4 /* ctRunDelegateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctRunDelegateViewController.m; sourceTree = "<group>"; };
 		67378CDA19653EB2002E6BA4 /* d_aini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "d_aini@2x.png"; path = "resource/d_aini@2x.png"; sourceTree = "<group>"; };
 		67378CDC19654087002E6BA4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		673D17411987B0B600692133 /* logItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logItem.h; sourceTree = "<group>"; };
+		673D17421987B0B600692133 /* logItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = logItem.m; sourceTree = "<group>"; };
 		674852FC194EED5500AD58C2 /* tomorrowScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tomorrowScrollViewController.h; sourceTree = "<group>"; };
 		674852FD194EED5500AD58C2 /* tomorrowScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tomorrowScrollViewController.m; sourceTree = "<group>"; };
 		674852FF194EEEDE00AD58C2 /* moduleList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = moduleList.plist; sourceTree = "<group>"; };
@@ -83,8 +87,6 @@
 		675A00C519499A710043EC35 /* rootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rootNavigationController.m; sourceTree = "<group>"; };
 		67684CC6196AF73D0036F5C7 /* snippetDispatchSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snippetDispatchSource.h; sourceTree = "<group>"; };
 		67684CC7196AF73D0036F5C7 /* snippetDispatchSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = snippetDispatchSource.m; sourceTree = "<group>"; };
-		67684CC9196AFBA30036F5C7 /* outputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = outputView.h; sourceTree = "<group>"; };
-		67684CCA196AFBA30036F5C7 /* outputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = outputView.m; sourceTree = "<group>"; };
 		6780AD6D1952D36400596708 /* zoomScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zoomScrollViewController.h; sourceTree = "<group>"; };
 		6780AD6E1952D36400596708 /* zoomScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zoomScrollViewController.m; sourceTree = "<group>"; };
 		6780AD741952F09E00596708 /* customScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customScrollViewController.h; sourceTree = "<group>"; };
@@ -95,6 +97,10 @@
 		67EFA21319534472004CF41E /* AuthorizationStateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizationStateController.m; sourceTree = "<group>"; };
 		67F6177419645F4E00B41FD2 /* attributeStringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attributeStringViewController.h; sourceTree = "<group>"; };
 		67F6177519645F4E00B41FD2 /* attributeStringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = attributeStringViewController.m; sourceTree = "<group>"; };
+		67FB297C198625C3007A425C /* logView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logView.h; sourceTree = "<group>"; };
+		67FB297D198625C3007A425C /* logView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = logView.m; sourceTree = "<group>"; };
+		67FB299119865C19007A425C /* logLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logLineView.h; sourceTree = "<group>"; };
+		67FB299219865C19007A425C /* logLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = logLineView.m; sourceTree = "<group>"; };
 		67FB939A1949CAF800CA43AB /* rootTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rootTableController.h; sourceTree = "<group>"; };
 		67FB939B1949CAF800CA43AB /* rootTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rootTableController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,10 +123,14 @@
 		670B5D681981057200C1AA98 /* logController */ = {
 			isa = PBXGroup;
 			children = (
-				67684CC9196AFBA30036F5C7 /* outputView.h */,
-				67684CCA196AFBA30036F5C7 /* outputView.m */,
 				670B5D65198102A700C1AA98 /* logViewController.h */,
 				670B5D66198102A700C1AA98 /* logViewController.m */,
+				67FB297C198625C3007A425C /* logView.h */,
+				67FB297D198625C3007A425C /* logView.m */,
+				67FB299119865C19007A425C /* logLineView.h */,
+				67FB299219865C19007A425C /* logLineView.m */,
+				673D17411987B0B600692133 /* logItem.h */,
+				673D17421987B0B600692133 /* logItem.m */,
 			);
 			name = logController;
 			sourceTree = "<group>";
@@ -432,10 +442,12 @@
 				675A00C619499A710043EC35 /* rootNavigationController.m in Sources */,
 				67378CD819653AC8002E6BA4 /* ctRunDelegateViewController.m in Sources */,
 				670B5D67198102A700C1AA98 /* logViewController.m in Sources */,
+				673D17431987B0B600692133 /* logItem.m in Sources */,
+				67FB299319865C19007A425C /* logLineView.m in Sources */,
 				67FB939C1949CAF800CA43AB /* rootTableController.m in Sources */,
-				67684CCB196AFBA30036F5C7 /* outputView.m in Sources */,
 				67EFA21019533B69004CF41E /* cameraPickerController.m in Sources */,
 				671154C81950395A00A2EE17 /* skinManager.m in Sources */,
+				67FB297E198625C3007A425C /* logView.m in Sources */,
 				670B5D641980FD9700C1AA98 /* GCDGeneralViewController.m in Sources */,
 				675A00C319499A570043EC35 /* rootViewController.m in Sources */,
 				675A009F19499A200043EC35 /* main.m in Sources */,

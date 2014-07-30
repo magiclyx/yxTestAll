@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  日志视图
+ */
 @interface logView : UITableView
+
+@property(readwrite, assign) CGFloat lineSpacing;
+
+- (void)separateBar;
+- (void)log:(NSString*)text;
 
 @end

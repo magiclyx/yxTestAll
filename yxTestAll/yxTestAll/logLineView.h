@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "logItem.h"
 
+/**
+ *  log 中每行cell的View
+ */
 @interface logLineView : UIView
+
+@property(readwrite, retain, nonatomic) logItem* item;
 
 @end
