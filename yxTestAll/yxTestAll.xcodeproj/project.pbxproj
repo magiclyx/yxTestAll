@@ -70,6 +70,7 @@
 		674852FC194EED5500AD58C2 /* tomorrowScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tomorrowScrollViewController.h; sourceTree = "<group>"; };
 		674852FD194EED5500AD58C2 /* tomorrowScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tomorrowScrollViewController.m; sourceTree = "<group>"; };
 		674852FF194EEEDE00AD58C2 /* moduleList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = moduleList.plist; sourceTree = "<group>"; };
+		674A29AE198A1AFD006AD10A /* macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macro.h; sourceTree = "<group>"; };
 		675A008F19499A200043EC35 /* yxTestAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yxTestAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		675A009219499A200043EC35 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		675A009419499A200043EC35 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -145,6 +146,7 @@
 				671154CE19503A7E00A2EE17 /* Environment.m */,
 				673082D219541A080049CED2 /* TestListController.h */,
 				673082D319541A080049CED2 /* TestListController.m */,
+				674A29AE198A1AFD006AD10A /* macro.h */,
 			);
 			name = tool;
 			sourceTree = "<group>";

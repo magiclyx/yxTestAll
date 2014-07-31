@@ -23,7 +23,6 @@
     return sharedInstance;
 }
 
-
 - (UIImage *)imageByName:(NSString *)name{
     
     if (nil == name)
