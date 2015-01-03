@@ -38,6 +38,9 @@
         // 设置tableView的委托
         tableView.delegate = self;
         
+        [tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+        tableView.separatorInset = UIEdgeInsetsZero;
+        
         // 设置tableView的背景图
         tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background.png"]];
         

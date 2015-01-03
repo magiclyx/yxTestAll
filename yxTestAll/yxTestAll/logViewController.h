@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "logView.h"
 
 @class logViewTaskContext;
 
@@ -33,6 +34,9 @@ typedef void* logViewSemaphoreHandle;
 
 @property(readwrite, assign) BOOL shouldIntervalInDifferentTask;
 @property(readwrite, assign) CGFloat intervalPerTask;
+
+
+- (logView*)logView;
 
 - (void)startWithName:(NSString *)name andWorkingBlock:(void (^)(void))block;
 - (void)reset;

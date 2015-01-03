@@ -15,6 +15,7 @@
 		671154D319505DDB00A2EE17 /* tomorrow_background@1096.png in Resources */ = {isa = PBXBuildFile; fileRef = 671154D119505DDB00A2EE17 /* tomorrow_background@1096.png */; };
 		6718DC6F194AABF5009CA6B1 /* wechat_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6718DC6E194AABF5009CA6B1 /* wechat_icon.png */; };
 		6718DC7F194AD6B4009CA6B1 /* protypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6718DC7E194AD6B4009CA6B1 /* protypeManager.m */; };
+		6724EA731A41303100685069 /* crashLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6724EA721A41303100685069 /* crashLogViewController.m */; };
 		67298F8F1949B72C007A8C83 /* rootNavigationSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67298F8E1949B72C007A8C83 /* rootNavigationSettingController.m */; };
 		673082D419541A080049CED2 /* TestListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 673082D319541A080049CED2 /* TestListController.m */; };
 		67378CD819653AC8002E6BA4 /* ctRunDelegateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67378CD719653AC8002E6BA4 /* ctRunDelegateViewController.m */; };
@@ -35,6 +36,14 @@
 		67684CC8196AF73D0036F5C7 /* snippetDispatchSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67684CC7196AF73D0036F5C7 /* snippetDispatchSource.m */; };
 		6780AD6F1952D36400596708 /* zoomScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780AD6E1952D36400596708 /* zoomScrollViewController.m */; };
 		6780AD761952F09F00596708 /* customScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780AD751952F09E00596708 /* customScrollViewController.m */; };
+		67A7C08C1A448777004A3AB5 /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A7C08B1A448777004A3AB5 /* Device.m */; };
+		67A7C08F1A45C1D2004A3AB5 /* runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A7C08E1A45C1D2004A3AB5 /* runtime.m */; };
+		67B1F3B31A2F2442000F4372 /* stringUtilityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B1F3B21A2F2442000F4372 /* stringUtilityViewController.m */; };
+		67BD78AD1A42F279009E6987 /* crashManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BD78AC1A42F279009E6987 /* crashManager.m */; };
+		67BD78BB1A42F76C009E6987 /* LoggerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BD78B51A42F76C009E6987 /* LoggerClient.m */; };
+		67BD78BC1A42F76C009E6987 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 67BD78B81A42F76C009E6987 /* LICENSE.txt */; };
+		67BD78BD1A42F76C009E6987 /* NSLogger.app in Resources */ = {isa = PBXBuildFile; fileRef = 67BD78B91A42F76C009E6987 /* NSLogger.app */; };
+		67BD78BE1A42F76C009E6987 /* README.markdown in Sources */ = {isa = PBXBuildFile; fileRef = 67BD78BA1A42F76C009E6987 /* README.markdown */; };
 		67EFA21019533B69004CF41E /* cameraPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFA20F19533B69004CF41E /* cameraPickerController.m */; };
 		67EFA21419534472004CF41E /* AuthorizationStateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFA21319534472004CF41E /* AuthorizationStateController.m */; };
 		67F6177619645F4E00B41FD2 /* attributeStringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F6177519645F4E00B41FD2 /* attributeStringViewController.m */; };
@@ -57,6 +66,8 @@
 		6718DC6E194AABF5009CA6B1 /* wechat_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wechat_icon.png; path = resource/wechat_icon.png; sourceTree = "<group>"; };
 		6718DC7D194AD6B4009CA6B1 /* protypeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = protypeManager.h; sourceTree = "<group>"; };
 		6718DC7E194AD6B4009CA6B1 /* protypeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = protypeManager.m; sourceTree = "<group>"; };
+		6724EA711A41303100685069 /* crashLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crashLogViewController.h; sourceTree = "<group>"; };
+		6724EA721A41303100685069 /* crashLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = crashLogViewController.m; sourceTree = "<group>"; };
 		67298F8D1949B72C007A8C83 /* rootNavigationSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rootNavigationSettingController.h; sourceTree = "<group>"; };
 		67298F8E1949B72C007A8C83 /* rootNavigationSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rootNavigationSettingController.m; sourceTree = "<group>"; };
 		673082D219541A080049CED2 /* TestListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestListController.h; sourceTree = "<group>"; };
@@ -92,6 +103,20 @@
 		6780AD6E1952D36400596708 /* zoomScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zoomScrollViewController.m; sourceTree = "<group>"; };
 		6780AD741952F09E00596708 /* customScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customScrollViewController.h; sourceTree = "<group>"; };
 		6780AD751952F09E00596708 /* customScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customScrollViewController.m; sourceTree = "<group>"; };
+		67A7C08A1A448777004A3AB5 /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
+		67A7C08B1A448777004A3AB5 /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
+		67A7C08D1A45C1D2004A3AB5 /* runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = runtime.h; sourceTree = "<group>"; };
+		67A7C08E1A45C1D2004A3AB5 /* runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = runtime.m; sourceTree = "<group>"; };
+		67B1F3B11A2F2442000F4372 /* stringUtilityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringUtilityViewController.h; sourceTree = "<group>"; };
+		67B1F3B21A2F2442000F4372 /* stringUtilityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stringUtilityViewController.m; sourceTree = "<group>"; };
+		67BD78AB1A42F279009E6987 /* crashManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crashManager.h; sourceTree = "<group>"; };
+		67BD78AC1A42F279009E6987 /* crashManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = crashManager.m; sourceTree = "<group>"; };
+		67BD78B41A42F76C009E6987 /* LoggerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggerClient.h; sourceTree = "<group>"; };
+		67BD78B51A42F76C009E6987 /* LoggerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggerClient.m; sourceTree = "<group>"; };
+		67BD78B61A42F76C009E6987 /* LoggerCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggerCommon.h; sourceTree = "<group>"; };
+		67BD78B81A42F76C009E6987 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		67BD78B91A42F76C009E6987 /* NSLogger.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = NSLogger.app; sourceTree = "<group>"; };
+		67BD78BA1A42F76C009E6987 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
 		67EFA20E19533B69004CF41E /* cameraPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cameraPickerController.h; sourceTree = "<group>"; };
 		67EFA20F19533B69004CF41E /* cameraPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cameraPickerController.m; sourceTree = "<group>"; };
 		67EFA21219534472004CF41E /* AuthorizationStateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizationStateController.h; sourceTree = "<group>"; };
@@ -147,6 +172,12 @@
 				673082D219541A080049CED2 /* TestListController.h */,
 				673082D319541A080049CED2 /* TestListController.m */,
 				674A29AE198A1AFD006AD10A /* macro.h */,
+				67BD78AB1A42F279009E6987 /* crashManager.h */,
+				67BD78AC1A42F279009E6987 /* crashManager.m */,
+				67A7C08A1A448777004A3AB5 /* Device.h */,
+				67A7C08B1A448777004A3AB5 /* Device.m */,
+				67A7C08D1A45C1D2004A3AB5 /* runtime.h */,
+				67A7C08E1A45C1D2004A3AB5 /* runtime.m */,
 			);
 			name = tool;
 			sourceTree = "<group>";
@@ -186,6 +217,15 @@
 				674852FF194EEEDE00AD58C2 /* moduleList.plist */,
 			);
 			name = App_Self;
+			sourceTree = "<group>";
+		};
+		6724EA701A4120B500685069 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				6724EA711A41303100685069 /* crashLogViewController.h */,
+				6724EA721A41303100685069 /* crashLogViewController.m */,
+			);
+			name = Debug;
 			sourceTree = "<group>";
 		};
 		67298F8C1949B6C4007A8C83 /* navigation */ = {
@@ -250,6 +290,7 @@
 		675A009819499A200043EC35 /* yxTestAll */ = {
 			isa = PBXGroup;
 			children = (
+				67BD78AE1A42F721009E6987 /* thirdPart */,
 				671154B01950246200A2EE17 /* tool */,
 				674852FB194EEC7D00AD58C2 /* sample */,
 				6718DC8B194B02A0009CA6B1 /* App_Self */,
@@ -275,6 +316,8 @@
 		67684CC4196AF7080036F5C7 /* codeSnippet */ = {
 			isa = PBXGroup;
 			children = (
+				6724EA701A4120B500685069 /* Debug */,
+				67B1F3B01A2F2393000F4372 /* String */,
 				67684CC5196AF7150036F5C7 /* GCD */,
 			);
 			name = codeSnippet;
@@ -321,6 +364,44 @@
 				6780AD751952F09E00596708 /* customScrollViewController.m */,
 			);
 			name = custom;
+			sourceTree = "<group>";
+		};
+		67B1F3B01A2F2393000F4372 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				67B1F3B11A2F2442000F4372 /* stringUtilityViewController.h */,
+				67B1F3B21A2F2442000F4372 /* stringUtilityViewController.m */,
+			);
+			name = String;
+			sourceTree = "<group>";
+		};
+		67BD78AE1A42F721009E6987 /* thirdPart */ = {
+			isa = PBXGroup;
+			children = (
+				67BD78B31A42F76C009E6987 /* NSLogger */,
+			);
+			path = thirdPart;
+			sourceTree = SOURCE_ROOT;
+		};
+		67BD78B31A42F76C009E6987 /* NSLogger */ = {
+			isa = PBXGroup;
+			children = (
+				67BD78B41A42F76C009E6987 /* LoggerClient.h */,
+				67BD78B51A42F76C009E6987 /* LoggerClient.m */,
+				67BD78B61A42F76C009E6987 /* LoggerCommon.h */,
+				67BD78B71A42F76C009E6987 /* NSLogger-Desktop */,
+			);
+			path = NSLogger;
+			sourceTree = "<group>";
+		};
+		67BD78B71A42F76C009E6987 /* NSLogger-Desktop */ = {
+			isa = PBXGroup;
+			children = (
+				67BD78B81A42F76C009E6987 /* LICENSE.txt */,
+				67BD78B91A42F76C009E6987 /* NSLogger.app */,
+				67BD78BA1A42F76C009E6987 /* README.markdown */,
+			);
+			path = "NSLogger-Desktop";
 			sourceTree = "<group>";
 		};
 		67EFA20D19533B16004CF41E /* imagePicker */ = {
@@ -415,9 +496,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				671154D219505DDB00A2EE17 /* tomorrow_background@920.png in Resources */,
+				67BD78BD1A42F76C009E6987 /* NSLogger.app in Resources */,
 				67378CDB19653EB2002E6BA4 /* d_aini@2x.png in Resources */,
 				67485300194EEEDE00AD58C2 /* moduleList.plist in Resources */,
 				675A009D19499A200043EC35 /* InfoPlist.strings in Resources */,
+				67BD78BC1A42F76C009E6987 /* LICENSE.txt in Resources */,
 				675A00A519499A210043EC35 /* Images.xcassets in Resources */,
 				6718DC6F194AABF5009CA6B1 /* wechat_icon.png in Resources */,
 				671154D319505DDB00A2EE17 /* tomorrow_background@1096.png in Resources */,
@@ -434,17 +517,24 @@
 				673082D419541A080049CED2 /* TestListController.m in Sources */,
 				675A00A319499A210043EC35 /* AppDelegate.m in Sources */,
 				671154CF19503A7E00A2EE17 /* Environment.m in Sources */,
+				67A7C08C1A448777004A3AB5 /* Device.m in Sources */,
+				67BD78AD1A42F279009E6987 /* crashManager.m in Sources */,
 				6780AD6F1952D36400596708 /* zoomScrollViewController.m in Sources */,
+				67A7C08F1A45C1D2004A3AB5 /* runtime.m in Sources */,
 				67684CC8196AF73D0036F5C7 /* snippetDispatchSource.m in Sources */,
 				67F6177619645F4E00B41FD2 /* attributeStringViewController.m in Sources */,
 				67EFA21419534472004CF41E /* AuthorizationStateController.m in Sources */,
 				6718DC7F194AD6B4009CA6B1 /* protypeManager.m in Sources */,
 				6780AD761952F09F00596708 /* customScrollViewController.m in Sources */,
 				674852FE194EED5500AD58C2 /* tomorrowScrollViewController.m in Sources */,
+				67B1F3B31A2F2442000F4372 /* stringUtilityViewController.m in Sources */,
 				675A00C619499A710043EC35 /* rootNavigationController.m in Sources */,
+				6724EA731A41303100685069 /* crashLogViewController.m in Sources */,
 				67378CD819653AC8002E6BA4 /* ctRunDelegateViewController.m in Sources */,
+				67BD78BB1A42F76C009E6987 /* LoggerClient.m in Sources */,
 				670B5D67198102A700C1AA98 /* logViewController.m in Sources */,
 				673D17431987B0B600692133 /* logItem.m in Sources */,
+				67BD78BE1A42F76C009E6987 /* README.markdown in Sources */,
 				67FB299319865C19007A425C /* logLineView.m in Sources */,
 				67FB939C1949CAF800CA43AB /* rootTableController.m in Sources */,
 				67EFA21019533B69004CF41E /* cameraPickerController.m in Sources */,
@@ -548,8 +638,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "yxTestAll/yxTestAll-Prefix.pch";
+				GENERATE_PROFILING_CODE = YES;
 				INFOPLIST_FILE = "yxTestAll/yxTestAll-Info.plist";
 				PRODUCT_NAME = yxTestAll;
 				WRAPPER_EXTENSION = app;
@@ -561,6 +653,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "yxTestAll/yxTestAll-Prefix.pch";
 				INFOPLIST_FILE = "yxTestAll/yxTestAll-Info.plist";

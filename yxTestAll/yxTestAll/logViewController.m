@@ -48,6 +48,11 @@
 
 @synthesize firstSection = _firstSection;
 
+- (logView*)logView
+{
+    return _output;
+}
+
 
 - (void)startWithName:(NSString *)name andWorkingBlock:(void (^)(void))block{
     

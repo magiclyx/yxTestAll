@@ -170,6 +170,48 @@
 						</dict>
 					</array>
 				</dict>
+				<dict>
+					<key>key</key>
+					<string>snippet_string</string>
+					<key>type</key>
+					<string>menu</string>
+					<key>title</key>
+					<string>string</string>
+					<key>subProTypes</key>
+					<array>
+						<dict>
+							<key>class</key>
+							<string>stringUtilityViewController</string>
+							<key>key</key>
+							<string>stringUtilityViewController</string>
+							<key>title</key>
+							<string>string utility</string>
+							<key>type</key>
+							<string>showcase</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>key</key>
+					<string>snippet_debug</string>
+					<key>type</key>
+					<string>menu</string>
+					<key>title</key>
+					<string>debug</string>
+					<key>subProTypes</key>
+					<array>
+						<dict>
+							<key>class</key>
+							<string>crashLogViewController</string>
+							<key>key</key>
+							<string>crashLogViewController</string>
+							<key>title</key>
+							<string>crash log</string>
+							<key>type</key>
+							<string>showcase</string>
+						</dict>
+					</array>
+				</dict>
 			</array>
 		</dict>
 	</dict>
