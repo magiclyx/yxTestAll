@@ -34,13 +34,6 @@
     [overlayWindow presentContentView:overlayView inRect:rect withUserInfo:nil andDelegate:nil];
     
     
-//    double delayInSeconds = 5.0;
-//    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-//    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-//        [overlayWindow dismiss:YES];
-//    });
-
-    
     
     [window release];
     [overlayWindow release];
@@ -58,6 +51,7 @@
         
         _imageView = [[UIImageView alloc] initWithImage:image];
         [_imageView setFrame:self.bounds];
+        _imageView.contentMode = UIViewContentModeScaleToFill;
         _imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
         
