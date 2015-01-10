@@ -13,6 +13,7 @@
 		671154CF19503A7E00A2EE17 /* Environment.m in Sources */ = {isa = PBXBuildFile; fileRef = 671154CE19503A7E00A2EE17 /* Environment.m */; };
 		671154D219505DDB00A2EE17 /* tomorrow_background@920.png in Resources */ = {isa = PBXBuildFile; fileRef = 671154D019505DDB00A2EE17 /* tomorrow_background@920.png */; };
 		671154D319505DDB00A2EE17 /* tomorrow_background@1096.png in Resources */ = {isa = PBXBuildFile; fileRef = 671154D119505DDB00A2EE17 /* tomorrow_background@1096.png */; };
+		67169AA81A5E8FFA009C057D /* helpOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67169AA71A5E8FFA009C057D /* helpOverlayViewController.m */; };
 		6718DC6F194AABF5009CA6B1 /* wechat_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6718DC6E194AABF5009CA6B1 /* wechat_icon.png */; };
 		6718DC7F194AD6B4009CA6B1 /* protypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6718DC7E194AD6B4009CA6B1 /* protypeManager.m */; };
 		6724EA731A41303100685069 /* crashLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6724EA721A41303100685069 /* crashLogViewController.m */; };
@@ -24,6 +25,7 @@
 		673D17431987B0B600692133 /* logItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 673D17421987B0B600692133 /* logItem.m */; };
 		674852FE194EED5500AD58C2 /* tomorrowScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 674852FD194EED5500AD58C2 /* tomorrowScrollViewController.m */; };
 		67485300194EEEDE00AD58C2 /* moduleList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 674852FF194EEEDE00AD58C2 /* moduleList.plist */; };
+		674C92EE1A5EA11300E0460A /* popoverWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 674C92ED1A5EA11300E0460A /* popoverWindow.m */; };
 		675A009319499A200043EC35 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675A009219499A200043EC35 /* Foundation.framework */; };
 		675A009519499A200043EC35 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675A009419499A200043EC35 /* CoreGraphics.framework */; };
 		675A009719499A200043EC35 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675A009619499A200043EC35 /* UIKit.framework */; };
@@ -44,6 +46,8 @@
 		67BD78BC1A42F76C009E6987 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 67BD78B81A42F76C009E6987 /* LICENSE.txt */; };
 		67BD78BD1A42F76C009E6987 /* NSLogger.app in Resources */ = {isa = PBXBuildFile; fileRef = 67BD78B91A42F76C009E6987 /* NSLogger.app */; };
 		67BD78BE1A42F76C009E6987 /* README.markdown in Sources */ = {isa = PBXBuildFile; fileRef = 67BD78BA1A42F76C009E6987 /* README.markdown */; };
+		67ED283F1A618BDB000FF3BB /* popOver.png in Resources */ = {isa = PBXBuildFile; fileRef = 67ED283E1A618BDB000FF3BB /* popOver.png */; };
+		67ED28421A618EDC000FF3BB /* helpOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 67ED28411A618EDC000FF3BB /* helpOverlay.m */; };
 		67EFA21019533B69004CF41E /* cameraPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFA20F19533B69004CF41E /* cameraPickerController.m */; };
 		67EFA21419534472004CF41E /* AuthorizationStateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFA21319534472004CF41E /* AuthorizationStateController.m */; };
 		67F6177619645F4E00B41FD2 /* attributeStringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F6177519645F4E00B41FD2 /* attributeStringViewController.m */; };
@@ -63,6 +67,8 @@
 		671154CE19503A7E00A2EE17 /* Environment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Environment.m; sourceTree = "<group>"; };
 		671154D019505DDB00A2EE17 /* tomorrow_background@920.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tomorrow_background@920.png"; path = "resource/tomorrow_background@920.png"; sourceTree = "<group>"; };
 		671154D119505DDB00A2EE17 /* tomorrow_background@1096.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tomorrow_background@1096.png"; path = "resource/tomorrow_background@1096.png"; sourceTree = "<group>"; };
+		67169AA61A5E8FFA009C057D /* helpOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpOverlayViewController.h; sourceTree = "<group>"; };
+		67169AA71A5E8FFA009C057D /* helpOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = helpOverlayViewController.m; sourceTree = "<group>"; };
 		6718DC6E194AABF5009CA6B1 /* wechat_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wechat_icon.png; path = resource/wechat_icon.png; sourceTree = "<group>"; };
 		6718DC7D194AD6B4009CA6B1 /* protypeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = protypeManager.h; sourceTree = "<group>"; };
 		6718DC7E194AD6B4009CA6B1 /* protypeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = protypeManager.m; sourceTree = "<group>"; };
@@ -82,6 +88,8 @@
 		674852FD194EED5500AD58C2 /* tomorrowScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tomorrowScrollViewController.m; sourceTree = "<group>"; };
 		674852FF194EEEDE00AD58C2 /* moduleList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = moduleList.plist; sourceTree = "<group>"; };
 		674A29AE198A1AFD006AD10A /* macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macro.h; sourceTree = "<group>"; };
+		674C92EC1A5EA11300E0460A /* popoverWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = popoverWindow.h; sourceTree = "<group>"; };
+		674C92ED1A5EA11300E0460A /* popoverWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = popoverWindow.m; sourceTree = "<group>"; };
 		675A008F19499A200043EC35 /* yxTestAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yxTestAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		675A009219499A200043EC35 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		675A009419499A200043EC35 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -117,6 +125,9 @@
 		67BD78B81A42F76C009E6987 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		67BD78B91A42F76C009E6987 /* NSLogger.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = NSLogger.app; sourceTree = "<group>"; };
 		67BD78BA1A42F76C009E6987 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
+		67ED283E1A618BDB000FF3BB /* popOver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = popOver.png; path = resource/popOver.png; sourceTree = "<group>"; };
+		67ED28401A618EDC000FF3BB /* helpOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpOverlay.h; sourceTree = "<group>"; };
+		67ED28411A618EDC000FF3BB /* helpOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = helpOverlay.m; sourceTree = "<group>"; };
 		67EFA20E19533B69004CF41E /* cameraPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cameraPickerController.h; sourceTree = "<group>"; };
 		67EFA20F19533B69004CF41E /* cameraPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cameraPickerController.m; sourceTree = "<group>"; };
 		67EFA21219534472004CF41E /* AuthorizationStateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizationStateController.h; sourceTree = "<group>"; };
@@ -178,6 +189,10 @@
 				67A7C08B1A448777004A3AB5 /* Device.m */,
 				67A7C08D1A45C1D2004A3AB5 /* runtime.h */,
 				67A7C08E1A45C1D2004A3AB5 /* runtime.m */,
+				674C92EC1A5EA11300E0460A /* popoverWindow.h */,
+				674C92ED1A5EA11300E0460A /* popoverWindow.m */,
+				67ED28401A618EDC000FF3BB /* helpOverlay.h */,
+				67ED28411A618EDC000FF3BB /* helpOverlay.m */,
 			);
 			name = tool;
 			sourceTree = "<group>";
@@ -360,8 +375,11 @@
 		6780AD731952E6CC00596708 /* custom */ = {
 			isa = PBXGroup;
 			children = (
+				67ED283D1A618BC5000FF3BB /* resource */,
 				6780AD741952F09E00596708 /* customScrollViewController.h */,
 				6780AD751952F09E00596708 /* customScrollViewController.m */,
+				67169AA61A5E8FFA009C057D /* helpOverlayViewController.h */,
+				67169AA71A5E8FFA009C057D /* helpOverlayViewController.m */,
 			);
 			name = custom;
 			sourceTree = "<group>";
@@ -402,6 +420,14 @@
 				67BD78BA1A42F76C009E6987 /* README.markdown */,
 			);
 			path = "NSLogger-Desktop";
+			sourceTree = "<group>";
+		};
+		67ED283D1A618BC5000FF3BB /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				67ED283E1A618BDB000FF3BB /* popOver.png */,
+			);
+			name = resource;
 			sourceTree = "<group>";
 		};
 		67EFA20D19533B16004CF41E /* imagePicker */ = {
@@ -496,6 +522,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				671154D219505DDB00A2EE17 /* tomorrow_background@920.png in Resources */,
+				67ED283F1A618BDB000FF3BB /* popOver.png in Resources */,
 				67BD78BD1A42F76C009E6987 /* NSLogger.app in Resources */,
 				67378CDB19653EB2002E6BA4 /* d_aini@2x.png in Resources */,
 				67485300194EEEDE00AD58C2 /* moduleList.plist in Resources */,
@@ -524,6 +551,7 @@
 				67684CC8196AF73D0036F5C7 /* snippetDispatchSource.m in Sources */,
 				67F6177619645F4E00B41FD2 /* attributeStringViewController.m in Sources */,
 				67EFA21419534472004CF41E /* AuthorizationStateController.m in Sources */,
+				67ED28421A618EDC000FF3BB /* helpOverlay.m in Sources */,
 				6718DC7F194AD6B4009CA6B1 /* protypeManager.m in Sources */,
 				6780AD761952F09F00596708 /* customScrollViewController.m in Sources */,
 				674852FE194EED5500AD58C2 /* tomorrowScrollViewController.m in Sources */,
@@ -533,6 +561,8 @@
 				67378CD819653AC8002E6BA4 /* ctRunDelegateViewController.m in Sources */,
 				67BD78BB1A42F76C009E6987 /* LoggerClient.m in Sources */,
 				670B5D67198102A700C1AA98 /* logViewController.m in Sources */,
+				67169AA81A5E8FFA009C057D /* helpOverlayViewController.m in Sources */,
+				674C92EE1A5EA11300E0460A /* popoverWindow.m in Sources */,
 				673D17431987B0B600692133 /* logItem.m in Sources */,
 				67BD78BE1A42F76C009E6987 /* README.markdown in Sources */,
 				67FB299319865C19007A425C /* logLineView.m in Sources */,

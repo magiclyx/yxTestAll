@@ -20,6 +20,16 @@
 			<array>
 				<dict>
 					<key>class</key>
+					<string>helpOverlayViewController</string>
+					<key>key</key>
+					<string>helpOverlayViewController</string>
+					<key>title</key>
+					<string>helpOverlay 简单实现</string>
+					<key>type</key>
+					<string>showcase</string>
+				</dict>
+				<dict>
+					<key>class</key>
 					<string>customScrollViewController</string>
 					<key>key</key>
 					<string>customScrollViewController</string>
