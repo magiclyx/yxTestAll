@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		670B5D641980FD9700C1AA98 /* GCDGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 670B5D631980FD9700C1AA98 /* GCDGeneralViewController.m */; };
 		670B5D67198102A700C1AA98 /* logViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 670B5D66198102A700C1AA98 /* logViewController.m */; };
+		671041BA1AADBFBF00FC93F2 /* CHMessageInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 671041B91AADBFBF00FC93F2 /* CHMessageInputView.m */; };
 		671154C81950395A00A2EE17 /* skinManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 671154C71950395A00A2EE17 /* skinManager.m */; };
 		671154CF19503A7E00A2EE17 /* Environment.m in Sources */ = {isa = PBXBuildFile; fileRef = 671154CE19503A7E00A2EE17 /* Environment.m */; };
 		671154D219505DDB00A2EE17 /* tomorrow_background@920.png in Resources */ = {isa = PBXBuildFile; fileRef = 671154D019505DDB00A2EE17 /* tomorrow_background@920.png */; };
@@ -36,6 +37,7 @@
 		675A00C319499A570043EC35 /* rootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 675A00C219499A570043EC35 /* rootViewController.m */; };
 		675A00C619499A710043EC35 /* rootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 675A00C519499A710043EC35 /* rootNavigationController.m */; };
 		67684CC8196AF73D0036F5C7 /* snippetDispatchSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67684CC7196AF73D0036F5C7 /* snippetDispatchSource.m */; };
+		677E6F6F1AA82BE700989DA2 /* CHCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 677E6F6E1AA82BE700989DA2 /* CHCheckbox.m */; };
 		6780AD6F1952D36400596708 /* zoomScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780AD6E1952D36400596708 /* zoomScrollViewController.m */; };
 		6780AD761952F09F00596708 /* customScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780AD751952F09E00596708 /* customScrollViewController.m */; };
 		67A7C08C1A448777004A3AB5 /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A7C08B1A448777004A3AB5 /* Device.m */; };
@@ -46,6 +48,18 @@
 		67BD78BC1A42F76C009E6987 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 67BD78B81A42F76C009E6987 /* LICENSE.txt */; };
 		67BD78BD1A42F76C009E6987 /* NSLogger.app in Resources */ = {isa = PBXBuildFile; fileRef = 67BD78B91A42F76C009E6987 /* NSLogger.app */; };
 		67BD78BE1A42F76C009E6987 /* README.markdown in Sources */ = {isa = PBXBuildFile; fileRef = 67BD78BA1A42F76C009E6987 /* README.markdown */; };
+		67C869861AA7229E004A5374 /* check_box_at.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C869841AA7229E004A5374 /* check_box_at.png */; };
+		67C869871AA7229E004A5374 /* check_box_un.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C869851AA7229E004A5374 /* check_box_un.png */; };
+		67D1410A1AA4BB410091393B /* messageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D141091AA4BB410091393B /* messageViewController.m */; };
+		67D1410D1AA4BCC80091393B /* CHMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D1410C1AA4BCC80091393B /* CHMessageView.m */; };
+		67D141101AA4C0D10091393B /* CHTempView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D1410F1AA4C0D10091393B /* CHTempView.m */; };
+		67D141141AA4C1C20091393B /* UIColor+Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D141131AA4C1C20091393B /* UIColor+Config.m */; };
+		67D1CE8F1AA5B09200F5812E /* CHMessageListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D1CE8E1AA5B09100F5812E /* CHMessageListView.m */; };
+		67D1CE941AA5B4A100F5812E /* account_arrow_go back.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D1CE901AA5B4A100F5812E /* account_arrow_go back.png */; };
+		67D1CE951AA5B4A100F5812E /* account_arrow_go back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D1CE911AA5B4A100F5812E /* account_arrow_go back@2x.png */; };
+		67D1CE961AA5B4A100F5812E /* account_confirm_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D1CE921AA5B4A100F5812E /* account_confirm_check.png */; };
+		67D1CE971AA5B4A100F5812E /* account_confirm_check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D1CE931AA5B4A100F5812E /* account_confirm_check@2x.png */; };
+		67D1CE9B1AA5D31800F5812E /* UIImage+skin.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D1CE9A1AA5D31800F5812E /* UIImage+skin.m */; };
 		67ED283F1A618BDB000FF3BB /* popOver.png in Resources */ = {isa = PBXBuildFile; fileRef = 67ED283E1A618BDB000FF3BB /* popOver.png */; };
 		67ED28421A618EDC000FF3BB /* helpOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 67ED28411A618EDC000FF3BB /* helpOverlay.m */; };
 		67EFA21019533B69004CF41E /* cameraPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFA20F19533B69004CF41E /* cameraPickerController.m */; };
@@ -61,6 +75,8 @@
 		670B5D631980FD9700C1AA98 /* GCDGeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGeneralViewController.m; sourceTree = "<group>"; };
 		670B5D65198102A700C1AA98 /* logViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logViewController.h; sourceTree = "<group>"; };
 		670B5D66198102A700C1AA98 /* logViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = logViewController.m; sourceTree = "<group>"; };
+		671041B81AADBFBF00FC93F2 /* CHMessageInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMessageInputView.h; sourceTree = "<group>"; };
+		671041B91AADBFBF00FC93F2 /* CHMessageInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMessageInputView.m; sourceTree = "<group>"; };
 		671154C61950395A00A2EE17 /* skinManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = skinManager.h; sourceTree = "<group>"; };
 		671154C71950395A00A2EE17 /* skinManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = skinManager.m; sourceTree = "<group>"; };
 		671154CD19503A7E00A2EE17 /* Environment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Environment.h; sourceTree = "<group>"; };
@@ -107,6 +123,8 @@
 		675A00C519499A710043EC35 /* rootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rootNavigationController.m; sourceTree = "<group>"; };
 		67684CC6196AF73D0036F5C7 /* snippetDispatchSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snippetDispatchSource.h; sourceTree = "<group>"; };
 		67684CC7196AF73D0036F5C7 /* snippetDispatchSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = snippetDispatchSource.m; sourceTree = "<group>"; };
+		677E6F6D1AA82BE700989DA2 /* CHCheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCheckbox.h; sourceTree = "<group>"; };
+		677E6F6E1AA82BE700989DA2 /* CHCheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCheckbox.m; sourceTree = "<group>"; };
 		6780AD6D1952D36400596708 /* zoomScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zoomScrollViewController.h; sourceTree = "<group>"; };
 		6780AD6E1952D36400596708 /* zoomScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zoomScrollViewController.m; sourceTree = "<group>"; };
 		6780AD741952F09E00596708 /* customScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customScrollViewController.h; sourceTree = "<group>"; };
@@ -125,6 +143,24 @@
 		67BD78B81A42F76C009E6987 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		67BD78B91A42F76C009E6987 /* NSLogger.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = NSLogger.app; sourceTree = "<group>"; };
 		67BD78BA1A42F76C009E6987 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
+		67C869841AA7229E004A5374 /* check_box_at.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = check_box_at.png; path = resource/check_box_at.png; sourceTree = "<group>"; };
+		67C869851AA7229E004A5374 /* check_box_un.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = check_box_un.png; path = resource/check_box_un.png; sourceTree = "<group>"; };
+		67D141081AA4BB410091393B /* messageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messageViewController.h; sourceTree = "<group>"; };
+		67D141091AA4BB410091393B /* messageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = messageViewController.m; sourceTree = "<group>"; };
+		67D1410B1AA4BCC80091393B /* CHMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMessageView.h; sourceTree = "<group>"; };
+		67D1410C1AA4BCC80091393B /* CHMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMessageView.m; sourceTree = "<group>"; };
+		67D1410E1AA4C0D10091393B /* CHTempView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTempView.h; sourceTree = "<group>"; };
+		67D1410F1AA4C0D10091393B /* CHTempView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTempView.m; sourceTree = "<group>"; };
+		67D141121AA4C1C20091393B /* UIColor+Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Config.h"; sourceTree = "<group>"; };
+		67D141131AA4C1C20091393B /* UIColor+Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Config.m"; sourceTree = "<group>"; };
+		67D1CE8D1AA5B09100F5812E /* CHMessageListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMessageListView.h; sourceTree = "<group>"; };
+		67D1CE8E1AA5B09100F5812E /* CHMessageListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMessageListView.m; sourceTree = "<group>"; };
+		67D1CE901AA5B4A100F5812E /* account_arrow_go back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "account_arrow_go back.png"; path = "resource/account_arrow_go back.png"; sourceTree = "<group>"; };
+		67D1CE911AA5B4A100F5812E /* account_arrow_go back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "account_arrow_go back@2x.png"; path = "resource/account_arrow_go back@2x.png"; sourceTree = "<group>"; };
+		67D1CE921AA5B4A100F5812E /* account_confirm_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = account_confirm_check.png; path = resource/account_confirm_check.png; sourceTree = "<group>"; };
+		67D1CE931AA5B4A100F5812E /* account_confirm_check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "account_confirm_check@2x.png"; path = "resource/account_confirm_check@2x.png"; sourceTree = "<group>"; };
+		67D1CE991AA5D31800F5812E /* UIImage+skin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+skin.h"; sourceTree = "<group>"; };
+		67D1CE9A1AA5D31800F5812E /* UIImage+skin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+skin.m"; sourceTree = "<group>"; };
 		67ED283E1A618BDB000FF3BB /* popOver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = popOver.png; path = resource/popOver.png; sourceTree = "<group>"; };
 		67ED28401A618EDC000FF3BB /* helpOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpOverlay.h; sourceTree = "<group>"; };
 		67ED28411A618EDC000FF3BB /* helpOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = helpOverlay.m; sourceTree = "<group>"; };
@@ -172,9 +208,24 @@
 			name = logController;
 			sourceTree = "<group>";
 		};
+		671041B71AADBF1A00FC93F2 /* messageView */ = {
+			isa = PBXGroup;
+			children = (
+				677E6F6D1AA82BE700989DA2 /* CHCheckbox.h */,
+				677E6F6E1AA82BE700989DA2 /* CHCheckbox.m */,
+				67D1CE8D1AA5B09100F5812E /* CHMessageListView.h */,
+				67D1CE8E1AA5B09100F5812E /* CHMessageListView.m */,
+				671041B81AADBFBF00FC93F2 /* CHMessageInputView.h */,
+				671041B91AADBFBF00FC93F2 /* CHMessageInputView.m */,
+			);
+			name = messageView;
+			sourceTree = "<group>";
+		};
 		671154B01950246200A2EE17 /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				671041B71AADBF1A00FC93F2 /* messageView */,
+				67D1CE981AA5D2BB00F5812E /* category */,
 				670B5D681981057200C1AA98 /* logController */,
 				671154C61950395A00A2EE17 /* skinManager.h */,
 				671154C71950395A00A2EE17 /* skinManager.m */,
@@ -193,6 +244,11 @@
 				674C92ED1A5EA11300E0460A /* popoverWindow.m */,
 				67ED28401A618EDC000FF3BB /* helpOverlay.h */,
 				67ED28411A618EDC000FF3BB /* helpOverlay.m */,
+				67D1410B1AA4BCC80091393B /* CHMessageView.h */,
+				67D1410C1AA4BCC80091393B /* CHMessageView.m */,
+				67D1410E1AA4C0D10091393B /* CHTempView.h */,
+				67D1410F1AA4C0D10091393B /* CHTempView.m */,
+				67D141111AA4C1C20091393B /* color */,
 			);
 			name = tool;
 			sourceTree = "<group>";
@@ -380,6 +436,8 @@
 				6780AD751952F09E00596708 /* customScrollViewController.m */,
 				67169AA61A5E8FFA009C057D /* helpOverlayViewController.h */,
 				67169AA71A5E8FFA009C057D /* helpOverlayViewController.m */,
+				67D141081AA4BB410091393B /* messageViewController.h */,
+				67D141091AA4BB410091393B /* messageViewController.m */,
 			);
 			name = custom;
 			sourceTree = "<group>";
@@ -422,9 +480,33 @@
 			path = "NSLogger-Desktop";
 			sourceTree = "<group>";
 		};
+		67D141111AA4C1C20091393B /* color */ = {
+			isa = PBXGroup;
+			children = (
+				67D141121AA4C1C20091393B /* UIColor+Config.h */,
+				67D141131AA4C1C20091393B /* UIColor+Config.m */,
+			);
+			path = color;
+			sourceTree = "<group>";
+		};
+		67D1CE981AA5D2BB00F5812E /* category */ = {
+			isa = PBXGroup;
+			children = (
+				67D1CE991AA5D31800F5812E /* UIImage+skin.h */,
+				67D1CE9A1AA5D31800F5812E /* UIImage+skin.m */,
+			);
+			name = category;
+			sourceTree = "<group>";
+		};
 		67ED283D1A618BC5000FF3BB /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				67D1CE901AA5B4A100F5812E /* account_arrow_go back.png */,
+				67D1CE911AA5B4A100F5812E /* account_arrow_go back@2x.png */,
+				67D1CE921AA5B4A100F5812E /* account_confirm_check.png */,
+				67D1CE931AA5B4A100F5812E /* account_confirm_check@2x.png */,
+				67C869841AA7229E004A5374 /* check_box_at.png */,
+				67C869851AA7229E004A5374 /* check_box_un.png */,
 				67ED283E1A618BDB000FF3BB /* popOver.png */,
 			);
 			name = resource;
@@ -522,14 +604,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				671154D219505DDB00A2EE17 /* tomorrow_background@920.png in Resources */,
+				67D1CE941AA5B4A100F5812E /* account_arrow_go back.png in Resources */,
+				67D1CE951AA5B4A100F5812E /* account_arrow_go back@2x.png in Resources */,
 				67ED283F1A618BDB000FF3BB /* popOver.png in Resources */,
+				67C869861AA7229E004A5374 /* check_box_at.png in Resources */,
+				67D1CE971AA5B4A100F5812E /* account_confirm_check@2x.png in Resources */,
 				67BD78BD1A42F76C009E6987 /* NSLogger.app in Resources */,
 				67378CDB19653EB2002E6BA4 /* d_aini@2x.png in Resources */,
 				67485300194EEEDE00AD58C2 /* moduleList.plist in Resources */,
 				675A009D19499A200043EC35 /* InfoPlist.strings in Resources */,
 				67BD78BC1A42F76C009E6987 /* LICENSE.txt in Resources */,
+				67C869871AA7229E004A5374 /* check_box_un.png in Resources */,
 				675A00A519499A210043EC35 /* Images.xcassets in Resources */,
 				6718DC6F194AABF5009CA6B1 /* wechat_icon.png in Resources */,
+				67D1CE961AA5B4A100F5812E /* account_confirm_check.png in Resources */,
 				671154D319505DDB00A2EE17 /* tomorrow_background@1096.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -542,11 +630,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				673082D419541A080049CED2 /* TestListController.m in Sources */,
+				67D141141AA4C1C20091393B /* UIColor+Config.m in Sources */,
 				675A00A319499A210043EC35 /* AppDelegate.m in Sources */,
+				67D1CE9B1AA5D31800F5812E /* UIImage+skin.m in Sources */,
 				671154CF19503A7E00A2EE17 /* Environment.m in Sources */,
 				67A7C08C1A448777004A3AB5 /* Device.m in Sources */,
 				67BD78AD1A42F279009E6987 /* crashManager.m in Sources */,
 				6780AD6F1952D36400596708 /* zoomScrollViewController.m in Sources */,
+				67D1410A1AA4BB410091393B /* messageViewController.m in Sources */,
 				67A7C08F1A45C1D2004A3AB5 /* runtime.m in Sources */,
 				67684CC8196AF73D0036F5C7 /* snippetDispatchSource.m in Sources */,
 				67F6177619645F4E00B41FD2 /* attributeStringViewController.m in Sources */,
@@ -555,8 +646,10 @@
 				6718DC7F194AD6B4009CA6B1 /* protypeManager.m in Sources */,
 				6780AD761952F09F00596708 /* customScrollViewController.m in Sources */,
 				674852FE194EED5500AD58C2 /* tomorrowScrollViewController.m in Sources */,
+				67D1CE8F1AA5B09200F5812E /* CHMessageListView.m in Sources */,
 				67B1F3B31A2F2442000F4372 /* stringUtilityViewController.m in Sources */,
 				675A00C619499A710043EC35 /* rootNavigationController.m in Sources */,
+				677E6F6F1AA82BE700989DA2 /* CHCheckbox.m in Sources */,
 				6724EA731A41303100685069 /* crashLogViewController.m in Sources */,
 				67378CD819653AC8002E6BA4 /* ctRunDelegateViewController.m in Sources */,
 				67BD78BB1A42F76C009E6987 /* LoggerClient.m in Sources */,
@@ -567,12 +660,15 @@
 				67BD78BE1A42F76C009E6987 /* README.markdown in Sources */,
 				67FB299319865C19007A425C /* logLineView.m in Sources */,
 				67FB939C1949CAF800CA43AB /* rootTableController.m in Sources */,
+				671041BA1AADBFBF00FC93F2 /* CHMessageInputView.m in Sources */,
+				67D141101AA4C0D10091393B /* CHTempView.m in Sources */,
 				67EFA21019533B69004CF41E /* cameraPickerController.m in Sources */,
 				671154C81950395A00A2EE17 /* skinManager.m in Sources */,
 				67FB297E198625C3007A425C /* logView.m in Sources */,
 				670B5D641980FD9700C1AA98 /* GCDGeneralViewController.m in Sources */,
 				675A00C319499A570043EC35 /* rootViewController.m in Sources */,
 				675A009F19499A200043EC35 /* main.m in Sources */,
+				67D1410D1AA4BCC80091393B /* CHMessageView.m in Sources */,
 				67298F8F1949B72C007A8C83 /* rootNavigationSettingController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -668,12 +764,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Mills (Q3ZVH7FKX4)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "yxTestAll/yxTestAll-Prefix.pch";
 				GENERATE_PROFILING_CODE = YES;
 				INFOPLIST_FILE = "yxTestAll/yxTestAll-Info.plist";
 				PRODUCT_NAME = yxTestAll;
+				PROVISIONING_PROFILE = "468fed2f-24e1-4b5d-a403-ddf022362643";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -683,11 +781,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Mills (Q3ZVH7FKX4)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "yxTestAll/yxTestAll-Prefix.pch";
 				INFOPLIST_FILE = "yxTestAll/yxTestAll-Info.plist";
 				PRODUCT_NAME = yxTestAll;
+				PROVISIONING_PROFILE = "468fed2f-24e1-4b5d-a403-ddf022362643";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
