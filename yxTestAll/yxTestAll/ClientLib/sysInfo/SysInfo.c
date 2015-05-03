@@ -1,0 +1,455 @@
+//
+//  SysInfo.c
+//  FileWalker
+//
+//  Created by Yuxi Liu on 8/30/12.
+//  Copyright (c) 2012 Yuxi Liu. All rights reserved.
+//
+
+#include <limits.h>
+#include <errno.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+
+#include <unistd.h>
+#include <pwd.h>
+#include <sys/stat.h>
+
+//use for sys info
+#include <sys/sysctl.h>
+//#include <servers/bootstrap.h>
+#include <mach/mach.h>
+#include <libproc.h>
+#include <Security/Security.h>
+//#include <CoreServices/CoreServices.h>
+//#include <DirectoryService/DirectoryService.h>
+
+
+
+#include <Paths.h>
+
+#include "cmBasicTypes.h"
+#include "SysInfo.h"
+
+/*********************************************************************/
+/*** Max Path ***/
+/*********************************************************************/
+
+
+#ifdef PATH_MAX
+static long pathmax = PATH_MAX;
+#else
+static long pathmax = 0;
+#endif
+
+//If PATH_MAX is indeterminate, no guarantee this is adequate  T T
+#define PATH_MAX_GUESS 1024
+
+#define SUSV3 200112L
+
+static long posix_version = 0;
+
+
+//I'm not very sure of this.
+//The Mac 360 just run in MacOS environment, we can indicate a larger num directly
+//both CFString or NSString are also good solutions.
+long sys_MaxPath()
+{
+    if(0 == posix_version)
+        posix_version = sysconf(_SC_VERSION);
+    
+    //It's first time you call this function
+    if(0 == pathmax)
+    {
+        errno = 0;
+        
+        if((pathmax = pathconf("/", _PC_PATH_MAX)) < 0)
+        {
+            if(0 == errno)
+                pathmax = PATH_MAX_GUESS;
+            else
+                printf("pathconf error for _PC_PATH_MAX");
+        }
+        else
+        {
+            pathmax++;
+        }
+        
+    }
+    
+    
+    if(posix_version < SUSV3)
+        return pathmax + 1;
+    else
+        return pathmax;
+    
+    
+    return pathmax;
+}
+
+/*********************************************************************/
+/*** getConfigPath ***/
+/*********************************************************************/
+
+const char* g_config_directory = "~/Library/360safe";
+const char* g_config_file = "/client.xml";
+
+
+const char* getConfigPath()
+{
+    static char buff[1024+1]; //1024 is large enough for a user path
+    static int isInited = 0;
+    
+    if(!isInited)
+    {
+        uid_t uid = getuid();
+        struct passwd* pwd = getpwuid(uid);
+        
+        strcpy(buff, pwd->pw_dir);
+        strcat(buff, g_config_directory+1);
+        
+        
+        //verify the path
+        if(access(buff, F_OK) == -1)
+        {
+            mkdir(buff, S_IRWXU|S_IWUSR);
+            if(access(buff, F_OK) == -1)
+                return NULL;
+            
+            if(access(buff, R_OK|W_OK) == -1)
+                return NULL;
+        }
+        
+        strcat(buff, g_config_file);
+        
+        isInited = 1;
+    }
+    
+    
+    
+    return buff;
+}
+
+
+/*********************************************************************/
+/*** getConfigPath ***/
+/*********************************************************************/
+const char* expandPathTitle(const char* pcszPath)
+{
+    static char buff[1024+1]; //I hope it's large enough
+    if(pcszPath[0] == '~')
+    {
+        uid_t uid = getuid();
+        struct passwd* pwd = getpwuid(uid);
+        strcpy(buff, pwd->pw_dir);
+        strcat(buff, pcszPath+1);
+        
+        return buff;
+    }
+    
+    return pcszPath;
+}
+
+
+
+
+/*******************************************************************************/
+/*******************************************************************************/
+
+const char* sys_model(char* buff, size_t* buffLen){
+    
+    if(NULL == buff)
+        return NULL;
+    if(NULL == buffLen)
+        return NULL;
+    
+    int mib[2] = {CTL_HW, HW_MACHINE};
+    size_t realLen = 0;
+    
+    
+    if(sysctl(mib, 2, NULL, &realLen, NULL, 0) != 0)
+        goto errout;
+    
+    
+#if SYSINFO_DEBUG
+    if(*buffLen < realLen){
+        sysInfo_error("[sys_model] the buff is not large enough to store the info");
+    }
+#endif
+    
+    
+    if(sysctl(mib, 2, buff, buffLen, NULL, 0) != 0)
+        goto errout;
+    
+    
+    *buffLen = realLen;
+    
+    
+    return buff;
+    
+
+errout:
+    return NULL;
+    
+}
+
+
+
+const char* sys_platform(char* buff, size_t* buffLen){
+    int mib[2] = {CTL_HW, HW_MACHINE};
+    size_t realLen;
+    
+    if(sysctl(mib, 2, NULL, &realLen, NULL, 0) != 0)
+        goto errout;
+    
+    
+#if SYSINFO_DEBUG
+    if(*buffLen < realLen){
+        sysInfo_error("[sys_platform] the buff is not large enough to store the info");
+    }
+#endif
+    
+    
+    if(sysctl(mib, 2, buff, buffLen, NULL, 0) != 0)
+        goto errout;
+    
+    
+    *buffLen = realLen;
+    
+
+    return buff;
+    
+errout:
+    return NULL;
+    
+}
+
+
+
+int64_t sys_totalMemorySpace(){
+    int mib[2] = {CTL_HW, HW_MEMSIZE};
+    int64_t memsize= 0;
+    size_t len = sizeof(memsize);
+    
+    if(sysctl(mib, 2, &memsize, &len, NULL, 0) != 0)
+        goto errout;
+    
+    return memsize;
+    
+errout:
+    return 0;
+}
+
+int64_t sys_freeMemorySpace()
+{
+    mach_port_t           host_port = mach_host_self();
+    mach_msg_type_number_t   host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
+    vm_size_t               pagesize;
+    vm_statistics_data_t     vm_stat;
+    
+    host_page_size(host_port, &pagesize);
+    
+    if (host_statistics(host_port, HOST_VM_INFO, (host_info_t)&vm_stat, &host_size) != KERN_SUCCESS)
+        goto errout;
+        
+    //    natural_t   mem_used = (vm_stat.active_count + vm_stat.inactive_count + vm_stat.wire_count) * pagesize;
+    int64_t   mem_free = vm_stat.free_count * pagesize;
+    //    natural_t   mem_total = mem_used + mem_free;
+        
+    return mem_free;
+    
+errout:
+    return 0;
+}
+
+
+
+void sys_OSVersion(SInt32* ver_main, SInt32* ver_sub, SInt32* ver_rev){
+    assert(0); //not support
+    
+//    if(NULL != ver_main){
+//        Gestalt(gestaltSystemVersionMajor, ver_main);
+//    }
+//    
+//    if(NULL != ver_sub){
+//        Gestalt(gestaltSystemVersionMinor, ver_sub);
+//    }
+//    
+//    if(NULL != ver_rev){
+//        Gestalt(gestaltSystemVersionBugFix, ver_rev);
+//    }
+    
+}
+
+
+const char* sys_kernelVersion(char* buff, size_t* buffLen){
+    int mib[2];
+    size_t realLen;
+    
+    
+    mib[0] = CTL_KERN;
+    mib[1] = KERN_OSVERSION;
+    
+    
+    if(sysctl(mib, 2, NULL, &realLen, NULL, 0) != 0)
+        goto errout;
+    
+    
+#if SYSINFO_DEBUG
+    if(*buffLen < realLen){
+        sysInfo_error("[sys_osVersion_kernel] the buff is not large enough to store the info");
+    }
+#endif
+    
+    
+    if(sysctl(mib, 2, buff, buffLen, NULL, 0) != 0)
+        goto errout;
+    
+    
+    *buffLen = realLen;
+    
+    
+    return buff;
+    
+errout:
+    return NULL;
+}
+const char* sys_version_description(char* buff, size_t buffLen){
+    size_t kernBuffLen = 1024;
+    char kern_osver[1024];
+    
+    SInt32 main_ver = 0, sub_ver = 0, rev_ver = 0;
+    sys_OSVersion(&main_ver, &sub_ver, &rev_ver);
+    if(NULL == sys_kernelVersion(kern_osver, &kernBuffLen))
+        goto errout;
+    
+    snprintf(buff, buffLen, "%d.%d.%d (%s)", (int)main_ver,(int)sub_ver,(int)rev_ver, kern_osver);
+    
+    return buff;
+    
+
+errout:
+    return NULL;
+}
+
+
+
+void sys_processor(uint32_t* cpunum, uint32_t* logcpunum, uint32_t* freq){
+    int mib[2] = {CTL_HW, HW_CPU_FREQ};
+    
+    //HW_NCPU
+    size_t len;
+    
+    len = sizeof(freq);
+    sysctl(mib, 2, freq, &len, NULL, 0);
+    
+    
+    mib[1] = HW_NCPU;
+    
+    len = sizeof(cpunum);
+    sysctlbyname("hw.physicalcpu", cpunum, &len, NULL, 0);
+    
+    len = sizeof(logcpunum);
+    sysctlbyname("hw.logicalcpu", logcpunum, &len, NULL, 0);
+}
+
+
+const char* sys_processor_description(char* buff, size_t buffLen){
+    sysctlbyname("machdep.cpu.brand_string", buff, &buffLen, NULL, 0);
+    return buff;
+}
+
+
+//
+//CFStringRef sys_serialNumber(){
+//    
+//    io_service_t    platformExpert;
+//    
+//    platformExpert = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("IOPlatformExpertDevice"));
+//    
+//    if(platformExpert == (io_service_t)0)
+//        goto errout;
+//    
+//    CFStringRef serialNumberAsCFString = (CFStringRef)IORegistryEntryCreateCFProperty(platformExpert, CFSTR(kIOPlatformSerialNumberKey), kCFAllocatorDefault, 0);
+//    
+//    if(serialNumberAsCFString == NULL)
+//        goto errout;
+//    
+//
+//    // sn = [NSString stringWithString : (NSString*)serialNumberAsCFString];
+//    
+//    
+//    if(platformExpert)
+//    {
+//        IOObjectRelease(platformExpert);
+//        platformExpert = (io_service_t)0;
+//    }
+//    
+//    return serialNumberAsCFString;
+//    
+//errout:
+//    return NULL;
+//
+//}
+
+
+const char* sys_hostName(char* buff, size_t* buffLen){
+    int mib[2] = {CTL_KERN, KERN_HOSTNAME};
+    size_t realLen;   
+    
+    
+    if(sysctl(mib, 2, NULL, &realLen, NULL, 0) != 0)
+        goto errout;
+    
+    
+#if SYSINFO_DEBUG
+    if(*buffLen < realLen){
+        sysInfo_error("[sys_hostName] the buff is not large enough to store the info");
+    }
+#endif
+    
+    
+    
+    if(sysctl(mib, 2, buff, buffLen, NULL, 0) != 0)
+        goto errout;
+    
+    
+    
+    *buffLen = realLen;
+    
+    return buff;
+    
+errout:
+    
+    return NULL;
+}
+
+
+unsigned long long sys_freeDiskSpace(const char* path)
+{
+    struct statfs buf;
+    long long freespace;
+    freespace = 0;
+    if(statfs(path, &buf) >= 0){
+        freespace = (long long)buf.f_bsize * buf.f_bfree;
+    }
+    return freespace;
+}
+
+
+unsigned long long sys_totalDiskSpace(const char* path)
+{
+    struct statfs buf;
+    long long totalspace;
+    totalspace = 0;
+    if(statfs(path, &buf) >= 0){
+        totalspace = (long long)buf.f_bsize * buf.f_blocks;
+    }    
+    return totalspace;
+}
+
+
+
+
+
