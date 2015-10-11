@@ -20,7 +20,7 @@
 #include <sys/sysctl.h>
 //#include <servers/bootstrap.h>
 #include <mach/mach.h>
-#include <libproc.h>
+//#include <libproc.h>
 #include <Security/Security.h>
 //#include <CoreServices/CoreServices.h>
 //#include <DirectoryService/DirectoryService.h>
@@ -428,25 +428,27 @@ errout:
 
 unsigned long long sys_freeDiskSpace(const char* path)
 {
-    struct statfs buf;
-    long long freespace;
-    freespace = 0;
-    if(statfs(path, &buf) >= 0){
-        freespace = (long long)buf.f_bsize * buf.f_bfree;
-    }
-    return freespace;
+//    struct statfs buf;
+//    long long freespace;
+//    freespace = 0;
+//    if(statfs(path, &buf) >= 0){
+//        freespace = (long long)buf.f_bsize * buf.f_bfree;
+//    }
+//    return freespace;
+    return 0;
 }
 
 
 unsigned long long sys_totalDiskSpace(const char* path)
 {
-    struct statfs buf;
-    long long totalspace;
-    totalspace = 0;
-    if(statfs(path, &buf) >= 0){
-        totalspace = (long long)buf.f_bsize * buf.f_blocks;
-    }    
-    return totalspace;
+//    struct statfs buf;
+//    long long totalspace;
+//    totalspace = 0;
+//    if(statfs(path, &buf) >= 0){
+//        totalspace = (long long)buf.f_bsize * buf.f_blocks;
+//    }    
+//    return totalspace;
+    return 0;
 }
 
 

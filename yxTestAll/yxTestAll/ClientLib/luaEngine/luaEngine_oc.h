@@ -37,30 +37,20 @@ typedef enum {
 
 
 
-@interface luaEngine_oc : NSObject{
-    lua_State* _luaRTContext;
-    //NSMutableDictionary* _objDict;
-    targetProxy* _target;
-}
+@interface luaEngine_oc : NSObject
 
-
-//instance manager
-+(luaEngine_oc*) sharedManager;
-+(BOOL)sharedInstanceExists;
-+(void)releaseManager;
-
+-(instancetype)initWithStdLibPath:(NSString*)path;
 
 -(void)RegistObject:(NSObject*)obj;
 -(void)UnRegistObject:(NSObject*)obj;
+
 -(luaEngineError) runChunkByPath:(NSString*)path;
 -(luaEngineError) runChunkByBuff:(NSData*)data withName:(NSString*)name;
--(luaEngineError) callLuaFunction:(NSString*)scriptPath :(NSString*)funName :(NSMutableArray*)rtVal :(NSMutableArray*)params;
--(luaEngineError) callLuaFunctionEx:(NSString*)scriptPath :(NSString*)funName :(NSMutableArray*)rtVal :(int)paramNum,...;
 
 
--(luaEngineError) callLuaFunctionWithBunchBuff:(NSData*)data :(NSString*)bundleName :(NSString*)funName :(NSMutableArray*)rtVal :(NSMutableArray*)params;
+- (luaEngineError) callFunction:(NSString*)funName withReturnValues:(NSArray**)rtVal andParams:(NSArray*)params;
+- (luaEngineError) callFunction:(NSString*)funName withReturnValues:(NSArray**)rtVal andParamsNum:(int)paramNum, ...;
 
--(luaEngineError) callLuaFunctionWithBunchBuffEx:(NSData*)data :(NSString*)bundleName :(NSString*)funName :(NSMutableArray*)rtVal :(int)paramNum,...;
 
 
 -(void)debug_stack;

@@ -9,7 +9,7 @@
 #include <sys/sysctl.h>
 //#include <servers/bootstrap.h>
 #include <mach/mach.h>
-#include <libproc.h>
+//#include <libproc.h>
 #include <Security/Security.h>
 //#include <CoreServices/CoreServices.h>
 //#include <DirectoryService/DirectoryService.h>
@@ -323,11 +323,12 @@ errout:
 
 +(unsigned long long)totalDiskSpace:(NSString *)filePath{ 
     //NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
-    struct statfs tStats; 
-    statfs([filePath UTF8String], &tStats); 
-    unsigned long long totalSpace = (unsigned long long)(tStats.f_blocks * tStats.f_bsize); 
-    
-    return totalSpace;
+//    struct statfs tStats; 
+//    statfs([filePath UTF8String], &tStats); 
+//    unsigned long long totalSpace = (unsigned long long)(tStats.f_blocks * tStats.f_bsize); 
+//    
+//    return totalSpace;
+    return 0;
 }
 
 

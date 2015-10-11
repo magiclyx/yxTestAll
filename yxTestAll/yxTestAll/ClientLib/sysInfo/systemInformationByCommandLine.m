@@ -27,7 +27,7 @@
 #include <sys/sysctl.h>
 //#include <servers/bootstrap.h>
 #include <mach/mach.h>
-#include <libproc.h>
+//#include <libproc.h>
 #include <Security/Security.h>
 //#include <CoreServices/CoreServices.h>
 //#include <DirectoryService/DirectoryService.h>
@@ -628,86 +628,87 @@ errout:
 -(NSNumber*) _walkingTheMountPointForFreeDiskIndex:(NSString*)bsdName{
 
     
-    int wantBSDIndex = [self _diskIndexOfName:bsdName];
-    
-    
-    if(nil == _FreeDiskSizeFixed){
-        
-        _FreeDiskSizeFixed = [[NSMutableArray alloc] init];
-        
-        static const char* mountPath = "/Volumes";
-        DIR* dp;
-        struct dirent* dirp;
-        
-        if((dp = opendir(mountPath)) == NULL){
-            return nil;
-        }
-        
-        
-        char mountName[1024+1];
-        char mountPoint[1024+1];
-        while((dirp = readdir(dp)) != NULL)
-        {
-            /*dot & dot-dot*/
-            if( (strcmp(dirp->d_name, ".") == 0) || (strcmp(dirp->d_name, "..") == 0) || (strcmp(dirp->d_name, ".DS_Store") == 0))
-                continue;
-            
-            /*appending name after slash*/
-            strcpy(mountName, dirp->d_name);
-            mountName[1024] = '\0';
-            
-            sprintf(mountPoint, "/Volumes/%s/", mountName);
-            
-            struct statfs stat;
-            if(statfs(mountPoint, &stat) >= 0){
-                
-                char statMountName[MNAMELEN+1];
-                unsigned long long freeSize = 0L;
-                
-                strcpy(statMountName, (char*)(stat.f_mntfromname));
-                statMountName[MNAMELEN] = '\0';
-                freeSize = (long long)stat.f_bsize * stat.f_bfree;
-                
-                
-                NSString* ocStatMountName = [NSString stringWithUTF8String:statMountName];
-                if(nil == ocStatMountName)
-                    continue;
-                
-                ocStatMountName = [ocStatMountName lastPathComponent];
-                
-
-                
-                int index = [self _diskIndexOfName:ocStatMountName];
-                if(-1 == index)
-                    continue;
-                
-                if([_FreeDiskSizeFixed count] < index+1){
-                    int fillCount = index+1 - (int)_FreeDiskSizeFixed.count;
-                    
-                    for(int i=0; i<fillCount; i++)
-                        [_FreeDiskSizeFixed addObject:[NSNumber numberWithUnsignedLongLong:0L]];
-                }
-                
-                NSNumber* obj = [_FreeDiskSizeFixed objectAtIndex:index];
-                freeSize += [obj unsignedLongValue];
-                [_FreeDiskSizeFixed replaceObjectAtIndex:index withObject:[NSNumber numberWithUnsignedLongLong:freeSize]];
-                
-                
-                
-            }
-
-        }
-        
-    }
-    
-    
-    if(wantBSDIndex + 1 <= [_FreeDiskSizeFixed count]){
-        return [_FreeDiskSizeFixed objectAtIndex:wantBSDIndex];
-    }
-    else{
-        return nil;
-    }
-    
+//    int wantBSDIndex = [self _diskIndexOfName:bsdName];
+//    
+//    
+//    if(nil == _FreeDiskSizeFixed){
+//        
+//        _FreeDiskSizeFixed = [[NSMutableArray alloc] init];
+//        
+//        static const char* mountPath = "/Volumes";
+//        DIR* dp;
+//        struct dirent* dirp;
+//        
+//        if((dp = opendir(mountPath)) == NULL){
+//            return nil;
+//        }
+//        
+//        
+//        char mountName[1024+1];
+//        char mountPoint[1024+1];
+//        while((dirp = readdir(dp)) != NULL)
+//        {
+//            /*dot & dot-dot*/
+//            if( (strcmp(dirp->d_name, ".") == 0) || (strcmp(dirp->d_name, "..") == 0) || (strcmp(dirp->d_name, ".DS_Store") == 0))
+//                continue;
+//            
+//            /*appending name after slash*/
+//            strcpy(mountName, dirp->d_name);
+//            mountName[1024] = '\0';
+//            
+//            sprintf(mountPoint, "/Volumes/%s/", mountName);
+//            
+//            struct statfs stat;
+//            if(statfs(mountPoint, &stat) >= 0){
+//                
+//                char statMountName[MNAMELEN+1];
+//                unsigned long long freeSize = 0L;
+//                
+//                strcpy(statMountName, (char*)(stat.f_mntfromname));
+//                statMountName[MNAMELEN] = '\0';
+//                freeSize = (long long)stat.f_bsize * stat.f_bfree;
+//                
+//                
+//                NSString* ocStatMountName = [NSString stringWithUTF8String:statMountName];
+//                if(nil == ocStatMountName)
+//                    continue;
+//                
+//                ocStatMountName = [ocStatMountName lastPathComponent];
+//                
+//
+//                
+//                int index = [self _diskIndexOfName:ocStatMountName];
+//                if(-1 == index)
+//                    continue;
+//                
+//                if([_FreeDiskSizeFixed count] < index+1){
+//                    int fillCount = index+1 - (int)_FreeDiskSizeFixed.count;
+//                    
+//                    for(int i=0; i<fillCount; i++)
+//                        [_FreeDiskSizeFixed addObject:[NSNumber numberWithUnsignedLongLong:0L]];
+//                }
+//                
+//                NSNumber* obj = [_FreeDiskSizeFixed objectAtIndex:index];
+//                freeSize += [obj unsignedLongValue];
+//                [_FreeDiskSizeFixed replaceObjectAtIndex:index withObject:[NSNumber numberWithUnsignedLongLong:freeSize]];
+//                
+//                
+//                
+//            }
+//
+//        }
+//        
+//    }
+//    
+//    
+//    if(wantBSDIndex + 1 <= [_FreeDiskSizeFixed count]){
+//        return [_FreeDiskSizeFixed objectAtIndex:wantBSDIndex];
+//    }
+//    else{
+//        return nil;
+//    }
+//
+    return nil;
 }
 
 /*get memory info*/

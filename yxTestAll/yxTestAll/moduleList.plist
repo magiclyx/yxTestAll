@@ -145,6 +145,48 @@
 						</dict>
 					</array>
 				</dict>
+				<dict>
+					<key>key</key>
+					<string>basic_msg</string>
+					<key>type</key>
+					<string>menu</string>
+					<key>title</key>
+					<string>邮件/短信</string>
+					<key>subProTypes</key>
+					<array>
+						<dict>
+							<key>class</key>
+							<string>mailViewController</string>
+							<key>key</key>
+							<string>mailViewController</string>
+							<key>title</key>
+							<string>mail</string>
+							<key>type</key>
+							<string>showcase</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>key</key>
+					<string>basic_dynamic</string>
+					<key>type</key>
+					<string>menu</string>
+					<key>title</key>
+					<string>物理动画</string>
+					<key>subProTypes</key>
+					<array>
+						<dict>
+							<key>class</key>
+							<string>dynamicViewController</string>
+							<key>key</key>
+							<string>dynamicViewController</string>
+							<key>title</key>
+							<string>dynamic</string>
+							<key>type</key>
+							<string>showcase</string>
+						</dict>
+					</array>
+				</dict>
 			</array>
 		</dict>
 		<key>code_snippet</key>
@@ -227,6 +269,48 @@
 							<string>crashLogViewController</string>
 							<key>title</key>
 							<string>crash log</string>
+							<key>type</key>
+							<string>showcase</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>key</key>
+					<string>snippet_lua</string>
+					<key>type</key>
+					<string>menu</string>
+					<key>title</key>
+					<string>lua</string>
+					<key>subProTypes</key>
+					<array>
+						<dict>
+							<key>class</key>
+							<string>luaListViewController</string>
+							<key>key</key>
+							<string>luaListViewController</string>
+							<key>title</key>
+							<string>lua_lua</string>
+							<key>type</key>
+							<string>showcase</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>key</key>
+					<string>snippet_paint</string>
+					<key>type</key>
+					<string>menu</string>
+					<key>title</key>
+					<string>绘图</string>
+					<key>subProTypes</key>
+					<array>
+						<dict>
+							<key>class</key>
+							<string>paintGradienViewController</string>
+							<key>key</key>
+							<string>paintGradienViewController</string>
+							<key>title</key>
+							<string>渐变</string>
 							<key>type</key>
 							<string>showcase</string>
 						</dict>

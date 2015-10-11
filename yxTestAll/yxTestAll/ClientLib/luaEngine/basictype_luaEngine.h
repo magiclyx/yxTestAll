@@ -37,6 +37,11 @@ NSString* luadebug_stackInfo(lua_State *L);
 
 @interface NSNumber (luaEngine)<luaBinding>
 -(void) pushValue:(lua_State*)luaRTContext;
+-(void) pushInt:(lua_State*)luaRTContext;
+-(void) pushUnsighedInt:(lua_State*)luaRTContext;
+-(void) pushLong:(lua_State*)luaRTContext;
+-(void) pushUnsignedLong:(lua_State*)luaRTContext;
+-(void) pushBoolean:(lua_State*)luaRTContext;
 +(id) valueWithLuaState:(lua_State*)luaRTContext :(int)idx;
 @end
 
@@ -51,7 +56,6 @@ NSString* luadebug_stackInfo(lua_State *L);
 -(void) pushValue:(lua_State*)luaRTContext;
 +(id) valueWithLuaState:(lua_State*)luaRTContext :(int)idx;
 @end
-
 
 
 

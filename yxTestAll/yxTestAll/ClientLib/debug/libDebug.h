@@ -87,7 +87,7 @@ extern HSL_Handle g_cmLib_libDebug_handle__;
 /*for auto debug on 360safe*/
 /*Temporary codes*/
 #ifdef DEBUG
-#define cm_break_on_condition(cond) if(!cond) __asm__("int3")
+#define cm_break_on_condition(cond) //if(!cond) __asm__("int3")
 #define cm_break_force() cm_break_on_condition(0)
 #else
 #define cm_break_on_condition(cond)

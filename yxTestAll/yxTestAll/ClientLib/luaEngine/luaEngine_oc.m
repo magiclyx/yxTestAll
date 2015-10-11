@@ -13,25 +13,21 @@
 /*  A debug tool */
 //I've tried to use the lua_typename. but it can not work correctly. why?
 
-
-static luaEngine_oc* g_luaEngineBridge_oc_instance = nil;
-
-
-
 int luaEngine_distributeFun(lua_State* L);
 static const NSString* distributeFunRgistName = @"callOCFunbyName"; //this name is used for lua script
 
 
 
+@interface luaEngine_oc(){
+    lua_State* _luaRTContext;
+    targetProxy* _target;
+}
 
-@interface luaEngine_oc()//{
-//@private
-//    lua_State* _luaRTContext;
-//    //NSMutableDictionary* _objDict;
-//    targetProxy* _target;
-//}
-
+- (NSString*) _findStdLibPackage:(NSString*)packageName withPath:(NSString*)path;
+- (BOOL) _loadStdlib:(NSString*)path;
 - (luaEngineError) _luaError2EngineError:(int)luaErr;
+
+
 - (luaEngineError) _callLuaFunction:(NSString*)funName :(NSMutableArray*)rtVal :(NSMutableArray*)params;
 
 @property(readonly, assign) targetProxy* target;
@@ -41,6 +37,10 @@ static const NSString* distributeFunRgistName = @"callOCFunbyName"; //this name 
 
 
 @implementation luaEngine_oc
+
+
+
+@synthesize target = _target;
 
 
 
@@ -56,11 +56,12 @@ static const NSString* distributeFunRgistName = @"callOCFunbyName"; //this name 
 
 
 
-@synthesize target = _target;
 
 
 
--(id)init{
+#pragma mark lifecrycle
+-(instancetype)initWithStdLibPath:(NSString*)path;
+{
     
     if(self = [super init])
     {
@@ -70,13 +71,28 @@ static const NSString* distributeFunRgistName = @"callOCFunbyName"; //this name 
             return nil;
         }
         
+        
         luaL_openlibs(_luaRTContext);
         
         lua_register(_luaRTContext, [distributeFunRgistName UTF8String], luaEngine_distributeFun);
         
         
         _target = [[targetProxy alloc] init];
-
+        
+        
+        if( NO == [self _loadStdlib:path] )
+        {
+            NSLog(@"failed to load lua stdlib");
+            return nil;
+        }
+        
+        
+        luaEngineError err = [self callFunction:@"setInstance" withReturnValues:nil andParamsNum:1, [NSNumber numberWithUnsignedLong:(unsigned long)(void*)self]];
+        if (luaEngine_error_success != err)
+        {
+            NSLog(@"failed to set instance");
+            return nil;
+        }
     }
     
     return self;
@@ -90,10 +106,12 @@ static const NSString* distributeFunRgistName = @"callOCFunbyName"; //this name 
     [_target release];
     _target = nil;
     
+    
     [super dealloc];
 }
 
 
+#pragma mark public
 
 -(luaEngineError) runChunkByPath:(NSString*)path{
     
@@ -127,6 +145,111 @@ static const NSString* distributeFunRgistName = @"callOCFunbyName"; //this name 
 
 
 
+- (luaEngineError) callFunction:(NSString*)funName withReturnValues:(NSArray**)rtVal andParams:(NSArray*)params
+{
+    /*init the error*/
+    luaEngineError error = luaEngine_error_success;
+    
+    
+    /*mark the current stack*/
+    int nTopFlag_BeforeCalling = lua_gettop(_luaRTContext);
+    
+    
+    /*push the function name*/
+    lua_getglobal(_luaRTContext, [funName UTF8String]);
+    
+    
+    
+    /*push the parameters*/
+    if (nil != params)
+    {
+        for(NSObject<luaBinding>* obj in params)
+        {
+            [obj pushValue:_luaRTContext];
+        }
+    }
+    
+    
+    
+    
+    /*call the function*/
+    int rt;
+    if(0 != (rt = lua_pcall(_luaRTContext, (int)[params count], LUA_MULTRET, 0)))
+        return [self _luaError2EngineError:rt];
+    
+    
+    
+    /*fetch the return value*/
+    int nTopFlag_AfterCalling = lua_gettop(_luaRTContext);
+    
+    if (NULL != rtVal)
+    {
+        NSMutableArray* return_list = [NSMutableArray arrayWithCapacity:nTopFlag_AfterCalling - nTopFlag_BeforeCalling];
+        
+        int index = nTopFlag_BeforeCalling;
+        for(; index<nTopFlag_AfterCalling; index++)
+        {
+            switch (lua_type(_luaRTContext, index+1)) {
+                case LUA_TNUMBER:
+                case LUA_TBOOLEAN:
+                    [return_list addObject:[NSNumber valueWithLuaState:_luaRTContext :index+1]];
+                    break;
+                case LUA_TSTRING:
+                    [return_list addObject:[NSString valueWithLuaState:_luaRTContext :index+1]];
+                    break;
+                case LUA_TTABLE:
+                    /*number or array*/
+                    [return_list addObject:[NSMutableDictionary valueWithLuaState:_luaRTContext :index+1]];
+                    break;
+                default:
+                    NSLog(@"unknow datatype");
+            }
+        }
+        
+        *rtVal = return_list;
+    }
+    
+    
+    /*reset the calling stack*/
+    lua_pop(_luaRTContext, nTopFlag_AfterCalling - nTopFlag_BeforeCalling);
+    
+    
+    return error;
+}
+
+
+- (luaEngineError) callFunction:(NSString*)funName withReturnValues:(NSArray**)rtVal andParamsNum:(int)paramNum, ...
+{
+    NSMutableArray* paramArr = [[NSMutableArray alloc] initWithCapacity:paramNum];
+    
+    va_list params;
+    va_start(params, paramNum);
+    for(int i=0; i<paramNum; i++){
+        id param = va_arg(params, id);
+        
+        assert(YES == [param isKindOfClass:[NSObject class]]);
+        
+        [paramArr addObject:param];
+    }
+    
+    luaEngineError err = [self callFunction:funName withReturnValues:rtVal andParams:paramArr];
+    
+    [paramArr release];
+    
+    return err;
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 - (NSObject<luaBinding>*) autoGet:(lua_State*)luaRTContext :(int)idx
@@ -145,158 +268,6 @@ static const NSString* distributeFunRgistName = @"callOCFunbyName"; //this name 
     return nil;
 }
 
--(luaEngineError) callLuaFunction:(NSString*)scriptPath :(NSString*)funName :(NSMutableArray*)rtVal :(NSMutableArray*)params{
-    
-    luaEngineError error = luaEngine_error_success;
-    
-    if(nil != scriptPath)
-    {
-        error = [self runChunkByPath:scriptPath];
-        if(error != luaEngine_error_success)
-            return error;
-    }
-    
-    
-    return [self _callLuaFunction:funName :rtVal :params];
-    
-}
-
--(luaEngineError) callLuaFunctionEx:(NSString*)scriptPath :(NSString*)funName :(NSMutableArray*)rtVal :(int)paramNum,...{
-    
-    NSMutableArray* paramArr = [[NSMutableArray alloc] initWithCapacity:paramNum];
-    
-    va_list params;
-    va_start(params, paramNum);
-    for(int i=0; i<paramNum; i++){
-        id param = va_arg(params, id);
-        [paramArr addObject:param];
-    }
-    
-    
-    luaEngineError err = [self callLuaFunction:scriptPath :funName :rtVal :paramArr];
-    
-    
-    [paramArr removeAllObjects];
-    [paramArr release];
-    paramArr = nil;
-    
-    return err;
-}
-
--(luaEngineError) callLuaFunctionWithBunchBuff:(NSData*)data :(NSString*)bundleName :(NSString*)funName :(NSMutableArray*)rtVal :(NSMutableArray*)params{
-    
-    luaEngineError error = luaEngine_error_success;
-    
-    if(nil != data  &&  nil != bundleName)
-    {
-        error = [self runChunkByBuff:data withName:bundleName];
-        if(error != luaEngine_error_success)
-            return error;
-    }
-    
-    
-    return [self _callLuaFunction:funName :rtVal :params];
-    
-}
-
--(luaEngineError) callLuaFunctionWithBunchBuffEx:(NSData*)data :(NSString*)bundleName :(NSString*)funName :(NSMutableArray*)rtVal :(int)paramNum,...{
-    NSMutableArray* paramArr = [[NSMutableArray alloc] initWithCapacity:paramNum];
-    
-    va_list params;
-    va_start(params, paramNum);
-    for(int i=0; i<paramNum; i++){
-        id param = va_arg(params, id);
-        [paramArr addObject:param];
-    }
-    
-    
-    luaEngineError err = [self callLuaFunctionWithBunchBuff:data :bundleName :funName :rtVal : paramArr];
-    
-    
-    [paramArr removeAllObjects];
-    [paramArr release];
-    paramArr = nil;
-    
-    return err;
-}
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////
-/*single operation*/
-/////////////////////////////////////////////////////////////////////////////////////////
-
-+(luaEngine_oc*) sharedManager{
-    @synchronized(self){
-        if(nil == g_luaEngineBridge_oc_instance){
-            [[self alloc] init]; //assigment not done here
-        }
-    }
-    
-    
-    return g_luaEngineBridge_oc_instance;
-}
-
-+(BOOL)sharedInstanceExists{
-    return (g_luaEngineBridge_oc_instance != nil ? YES : NO);
-}
-
-+(void)releaseManager{
-    @synchronized(self){
-        if(nil != g_luaEngineBridge_oc_instance){
-            luaEngine_oc* tmpInstance = g_luaEngineBridge_oc_instance;
-            g_luaEngineBridge_oc_instance = nil;  //Just when g_luaEngineBridge_oc_instance is equal to nil, the release operation will do the free work.
-            [tmpInstance release];
-        }
-    }
-}
-
-
-
-
-
-
-+ (id)allocWithZone:(NSZone *)zone
-{
-    @synchronized(self) {
-        if (g_luaEngineBridge_oc_instance == nil) {
-            g_luaEngineBridge_oc_instance = [super allocWithZone:zone];
-            return g_luaEngineBridge_oc_instance;  // assignment and return on first allocation
-        }
-    }
-    return nil; //on subsequent allocation attempts return nil
-}
-
-- (id)copyWithZone:(NSZone *)zone
-{
-    return self;
-}
-
-- (id)retain
-{
-    return self;
-}
-
-- (NSUInteger)retainCount
-{
-    return UINT_MAX;  //denotes an object that cannot be released
-}
-
-- (oneway void)release
-{
-    if(nil == g_luaEngineBridge_oc_instance)
-        [self dealloc];
-    
-    //do nothing
-}
-
-- (id)autorelease
-{
-    return self;
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -309,6 +280,74 @@ static const NSString* distributeFunRgistName = @"callOCFunbyName"; //this name 
 
 ///////////////////////////////////////////////////////////////////////
 //private functions
+
+- (BOOL) _loadStdlib:(NSString*)path
+{
+    BOOL isSuccess = NO;
+    
+    do{
+        
+        if (nil == path)
+            break;
+        
+        NSString* runtimePackagePath = [self _findStdLibPackage:@"luaEngine_runtime" withPath:path];
+        if (nil == runtimePackagePath)
+            break;
+        
+        NSString* arrayPackagePath = [self _findStdLibPackage:@"luaEngine_MutableArray" withPath:path];
+        if (nil == arrayPackagePath)
+            break;
+        
+        
+        if (luaEngine_error_success != [self runChunkByPath:runtimePackagePath])
+            break;
+        
+        if (luaEngine_error_success != [self runChunkByPath:arrayPackagePath])
+            break;
+        
+        isSuccess = YES;
+        
+        
+    }while(0);
+    
+    
+    return isSuccess;
+}
+
+- (NSString*) _findStdLibPackage:(NSString*)packageName withPath:(NSString*)path
+{
+    NSString* resultPath = nil;
+    
+    if (nil == packageName)
+        return nil;
+    
+    NSString* packagePath = [path stringByAppendingPathComponent:@"luaEngine_runtime"];
+    if(YES == [[NSFileManager defaultManager] fileExistsAtPath:packagePath])
+        resultPath = packagePath;
+    
+    
+#ifdef DEBUG
+    if (nil == resultPath)
+    {
+        packagePath = [packagePath stringByAppendingPathExtension:@"lua"];
+        if(YES == [[NSFileManager defaultManager] fileExistsAtPath:packagePath])
+            resultPath = packagePath;
+    }
+#endif
+    
+    
+//    if (nil != packagePath)
+//    {
+//        BOOL isValid = [self _fileSignVerify:packagePath];
+//        if (NO == isValid)
+//        {
+//            packagePath = nil;
+//        }
+//    }
+//    
+    
+    return resultPath;
+}
 
 - (luaEngineError) _luaError2EngineError:(int)luaErr{
     luaEngineError rtVal;
@@ -340,7 +379,6 @@ static const NSString* distributeFunRgistName = @"callOCFunbyName"; //this name 
     return rtVal;
 
 }
-
 
 
 
@@ -408,129 +446,6 @@ static const NSString* distributeFunRgistName = @"callOCFunbyName"; //this name 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-//int luaEngine_distributeFun(lua_State* L){
-//    
-//    
-//    int nParamNum = lua_gettop(L);
-//    if(nParamNum < 1)
-//        return (int)luaEngine_error_param;
-//    
-//    
-//    if(!lua_isstring(L, 1))
-//        return (int)luaEngine_error_param;
-//    
-//    NSString* funName = [NSString valueWithLuaState:L :1];
-//    
-//    NSMutableArray* params = [NSMutableArray arrayWithCapacity:nParamNum-1];
-//    for(int i=1; i<nParamNum; i++)
-//    {
-//        switch (lua_type(L, i+1)) {
-//            case LUA_TNUMBER:
-//            case LUA_TBOOLEAN:
-//                [params addObject:[NSNumber valueWithLuaState:L :i+1]];
-//                break;
-//            case LUA_TSTRING:
-//                [params addObject:[NSString valueWithLuaState:L :i+1]];
-//                break;
-//            case LUA_TTABLE:
-//                /*dictioanry or array*/
-//                [params addObject:[NSMutableDictionary valueWithLuaState:L :i+1]];
-//                break;
-//            default:
-//                NSLog(@"unknow datatype");
-//        }
-//    }
-//    
-//    
-//    
-//    
-//    NSMethodSignature* sig = [[[luaEngine_oc sharedManager] target] methodSignatureForSelector:NSSelectorFromString(funName)];
-//    
-//#ifdef DEBUG
-//    if(nil == sig){
-//        NSLog(@"luaEngine");
-//        NSLog(@"lua->C  can not found a function:%@", funName);
-//        assert(0);
-//    }
-//#endif
-//    
-//    if(nil != sig){
-//        NSInvocation* invocation = [NSInvocation invocationWithMethodSignature:sig];
-//        [invocation setTarget:[[luaEngine_oc sharedManager] target]];
-//        [invocation setSelector:NSSelectorFromString(funName)];
-//        
-//        
-//        //set param
-//        int index = 0;
-//        for(id param in params){
-//            [invocation setArgument:&param atIndex:index+2];
-//            index++;
-//        }
-//        
-//        
-//        
-//        
-//        @try {
-//            [invocation invoke];
-//        }
-//        @catch (NSException *exception) {
-//            NSArray *arr = [exception callStackSymbols];
-//            NSString *reason = [exception reason];
-//            NSString *name = [exception name];
-//            
-//            NSLog(@"an exception on remote call");
-//            NSString* log = [NSString stringWithFormat:@"%@\n%@\n%@\n", name, reason, arr];
-//            NSLog(@"%@", log);
-//            assert(0);
-//        }
-//        
-//        
-//        int rtVal = 0;
-//        id returnValue = nil;
-//        const char* returnType = sig.methodReturnType;
-//        if(0 == strcmp(returnType, @encode(void))){
-//            rtVal = 0;
-//        }
-//        else if(0 == strcmp(returnType, @encode(id))){
-//            
-//            [invocation getReturnValue:&returnValue];
-//            
-//            //invalidate return type!!!!!!
-//            assert(YES == [returnValue respondsToSelector:@selector(pushValue:)]);
-//            
-//            [returnValue pushValue:L]; //returnValue also supported the NSNull object
-//            
-//            rtVal = 1;
-//        }
-//        else{
-//            //:~ TODO
-//            //we just support the object-c data type and nil.
-//            //can do it later!!!
-//            rtVal = 0;
-//        }
-//        
-//    }
-//    
-//    
-//
-//    
-//    return -1;
-//}
-
-
-
-
 int luaEngine_distributeFun(lua_State* L){
     
     
@@ -547,29 +462,37 @@ int luaEngine_distributeFun(lua_State* L){
     if(nil == callingDict)
         return (int)luaEngine_error_param;
     
+    NSNumber* engineAddress = [callingDict objectForKey:@"engine_address"];
+    if (nil == engineAddress  ||  NO == [engineAddress isKindOfClass:[NSNumber class]])
+        return (int)luaEngine_error_param;
+    
+    unsigned long engineAddressValue = [engineAddress unsignedLongValue];
+//    if (yx_false == isPtr((void*)engineAddressValue))
+//        return (int)luaEngine_error_param;
+    
+    
+    
+    luaEngine_oc* engine = (luaEngine_oc*)(unsigned long)engineAddressValue;
+    if (NO == [engine isKindOfClass:[luaEngine_oc class]])
+        return (int)luaEngine_error_param;
+    
+    
     NSString* funName = [callingDict objectForKey:@"function_name"];
     if(nil == funName  ||  NO == [funName isKindOfClass:[NSString class]])
         return (int)luaEngine_error_param;
     
-//    NSNumber* paramNum = [callingDict objectForKey:@"param_num"];
-//    if(nil == paramNum  ||  NO == [paramNum isKindOfClass:[NSNumber class]])
-//        return (int)luaEngine_error_param;
     
     NSDictionary* paramDict = [callingDict objectForKey:@"param_list"];
     if(nil == paramDict  ||  NO == [paramDict isKindOfClass:[NSDictionary class]])
         return (int)luaEngine_error_param;
     
-//    int ndictCount = (int)[paramDict count];
-//    NSMutableArray* params = [[NSMutableArray alloc] initWithCapacity:ndictCount];
-//    for(int i=0; i<ndictCount; i++){
-//        NSString* key = [NSString stringWithFormat:@"_param_%d", i+1];
-//        id param = [paramDict objectForKey:key];
-//        assert(nil != param);
-//        [params addObject:param];
-//    }
+    
+    targetProxy* target = [engine target];
+    if (nil == target)
+        return (int)luaEngine_error_param;
     
     
-    NSMethodSignature* sig = [[[luaEngine_oc sharedManager] target] methodSignatureForSelector:NSSelectorFromString(funName)];
+    NSMethodSignature* sig = [target methodSignatureForSelector:NSSelectorFromString(funName)];
     
 #ifdef DEBUG
     if(nil == sig){
@@ -580,19 +503,13 @@ int luaEngine_distributeFun(lua_State* L){
 #endif
     
     int rtVal = 0;
-    if(nil != sig){
+    if(nil != sig)
+    {
         NSInvocation* invocation = [NSInvocation invocationWithMethodSignature:sig];
-        [invocation setTarget:[[luaEngine_oc sharedManager] target]];
+        [invocation setTarget:target];
         [invocation setSelector:NSSelectorFromString(funName)];
         
         
-        //set param
-//        int index = 0;
-//        for(id param in params){
-//            [invocation setArgument:&param atIndex:index+2];
-//            index++;
-//        }
-//              
         int ndictCount = (int)[paramDict count];
         for(int index=0; index<ndictCount; index++){
             NSString* key = [NSString stringWithFormat:@"_param_%d", index+1];
@@ -600,7 +517,6 @@ int luaEngine_distributeFun(lua_State* L){
             assert(nil != param);
             [invocation setArgument:&param atIndex:index+2];
         }
-        
         
         
         
@@ -621,35 +537,152 @@ int luaEngine_distributeFun(lua_State* L){
         }
         
         
+        
         rtVal = 0;
-        id returnValue = nil;
         const char* returnType = sig.methodReturnType;
-        if(0 == strcmp(returnType, @encode(void))){
-            rtVal = 0;
-        }
-        else if(0 == strcmp(returnType, @encode(id))){
-            
-            [invocation getReturnValue:&returnValue];
-            
-            //invalidate return type!!!!!!
-            assert(YES == [returnValue respondsToSelector:@selector(pushValue:)]);
-            
-            [returnValue pushValue:L]; //returnValue also supported the NSNull object
-            
-            rtVal = 1;
-        }
-        else{
-            //:~ TODO
-            //we just support the object-c data type and nil.
-            //can do it later!!!
-            rtVal = 0;
+        const char cursor = *returnType;
+        
+        switch (cursor)
+        {
+            case '^':
+            {
+                void* returnValue = NULL;
+                [invocation getReturnValue:&returnValue];
+                
+                lua_pushlightuserdata(L, returnValue);
+                
+                rtVal = 1;
+            }
+            break;
+                
+            case '@':
+            {
+                id returnValue = nil;
+                [invocation getReturnValue:&returnValue];
+                
+                
+                if (nil == returnValue)
+                {
+                    returnValue = [NSNull null];
+                }
+                
+                
+                [returnValue pushValue:L];
+                
+                rtVal = 1;
+
+            }
+                
+            break;
+                
+            case 'V':
+                rtVal = 0;
+                break;
+            case 'B':
+            {
+                BOOL returnValue;
+                [invocation getReturnValue:&returnValue];
+                
+                lua_pushboolean(L, (int)returnValue);
+                
+                rtVal = 1;
+            }
+                break;
+            case 'i':
+            {
+                int returnValue;
+                [invocation getReturnValue:&returnValue];
+                
+                lua_pushinteger(L, returnValue);
+                
+                rtVal = 1;
+            }
+                break;
+            case 'I':
+            {
+                unsigned int returnValue;
+                [invocation getReturnValue:&returnValue];
+                
+                lua_pushunsigned(L, returnValue);
+                
+                rtVal = 1;
+            }
+                break;
+            case 'q':
+            {
+                long returnValue;
+                [invocation getReturnValue:&returnValue];
+
+                lua_pushinteger(L, returnValue);
+                
+                rtVal = 1;
+            }
+                break;
+            case 'Q':
+            {
+                unsigned long returnValue;
+                [invocation getReturnValue:&returnValue];
+
+                lua_pushnumber(L, (double)returnValue);
+                
+                rtVal = 1;
+            }
+                break;
+            case 's':
+            {
+                short returnValue;
+                [invocation getReturnValue:&returnValue];
+
+                lua_pushinteger(L, returnValue);
+                
+                rtVal = 1;
+            }
+                break;
+            case 'S':
+            {
+                unsigned short returnValue;
+                [invocation getReturnValue:&returnValue];
+
+                lua_pushunsigned(L, returnValue);
+                
+                rtVal = 1;
+            }
+                break;
+            case 'c':
+            case 'C':
+            {
+                char returnValue;
+                [invocation getReturnValue:&returnValue];
+                
+                
+                [[NSString stringWithFormat:@"%c", (char)returnValue] pushValue:L];
+                
+                
+                rtVal = 1;
+            }
+                break;
+            case ':':
+            {
+                SEL returnValue;
+                [invocation getReturnValue:&returnValue];
+                
+                NSString* funName = NSStringFromSelector(returnValue);
+                if (nil != funName)
+                {
+                    [funName pushValue:L];
+                }
+
+                rtVal = 1;
+            }
+                break;
+                
+            default:
+                rtVal = 0;
+                break;
         }
         
+        
     }
-    
-    
-    
-    
     return rtVal;
 }
 

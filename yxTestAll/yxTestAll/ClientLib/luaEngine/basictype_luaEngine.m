@@ -125,6 +125,31 @@ NSString* luadebug_stackInfo(lua_State *L){
     lua_pushnumber(luaRTContext, [self doubleValue]);
 }
 
+-(void) pushInt:(lua_State*)luaRTContext
+{
+    lua_pushinteger(luaRTContext, [self intValue]);
+}
+
+-(void) pushUnsighedInt:(lua_State*)luaRTContext
+{
+    lua_pushnumber(luaRTContext, [self unsignedIntValue]);
+}
+
+-(void) pushLong:(lua_State*)luaRTContext
+{
+    lua_pushinteger(luaRTContext, [self integerValue]);
+}
+
+-(void) pushUnsignedLong:(lua_State*)luaRTContext
+{
+    lua_pushnumber(luaRTContext, [self doubleValue]);
+}
+
+-(void)pushBoolean:(lua_State*)luaRTContext
+{
+    lua_pushboolean(luaRTContext, [self boolValue]);
+}
+
 +(id) valueWithLuaState:(lua_State*)luaRTContext :(int)idx{
     
     if(lua_isboolean(luaRTContext, idx)){
@@ -216,6 +241,9 @@ NSString* luadebug_stackInfo(lua_State *L){
             /*number or array*/
             return [NSMutableDictionary valueWithLuaState:luaRTContext :idx];
             break;
+        case LUA_TNIL:
+            return [NSNull valueWithLuaState:luaRTContext :idx];
+            break;
         defaut:
             NSLog(@"unknow datatype");
             
@@ -298,7 +326,7 @@ NSString* luadebug_stackInfo(lua_State *L){
     lua_pushnil(luaRTContext);
 }
 +(id) valueWithLuaState:(lua_State*)luaRTContext :(int)idx{
-    return nil;
+    return [NSNull null];
 }
 
 @end

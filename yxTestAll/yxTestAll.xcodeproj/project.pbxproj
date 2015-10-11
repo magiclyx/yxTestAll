@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B06DFB01B06038A00BEE89C /* luaEngine_MutableArray.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3B06DFAE1B06038A00BEE89C /* luaEngine_MutableArray.lua */; };
+		3B06DFB11B06038A00BEE89C /* luaEngine_RegistedObj.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3B06DFAF1B06038A00BEE89C /* luaEngine_RegistedObj.lua */; };
+		3B06DFB31B0617B300BEE89C /* luaEngine_runtime.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3B06DFB21B0617B300BEE89C /* luaEngine_runtime.lua */; };
+		3B06DFB71B06182E00BEE89C /* luaEngine_MutableArray.lua in copy luaEngine lib */ = {isa = PBXBuildFile; fileRef = 3B06DFB51B06182E00BEE89C /* luaEngine_MutableArray.lua */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3B06DFB81B06182E00BEE89C /* luaEngine_runtime.lua in copy luaEngine lib */ = {isa = PBXBuildFile; fileRef = 3B06DFB61B06182E00BEE89C /* luaEngine_runtime.lua */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3B294E841B8DA7E900E06883 /* dynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B294E831B8DA7E900E06883 /* dynamicViewController.m */; };
 		3B4196481AF66BFF00462765 /* arrayOnThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4195A11AF66BFF00462765 /* arrayOnThread.m */; };
 		3B4196491AF66BFF00462765 /* calculate.c in Sources */ = {isa = PBXBuildFile; fileRef = 3B4195A31AF66BFF00462765 /* calculate.c */; };
 		3B41964A1AF66BFF00462765 /* cfgManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4195A71AF66BFF00462765 /* cfgManager.m */; };
@@ -77,6 +83,17 @@
 		3B41968C1AF66BFF00462765 /* systemInformationByCommandLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4196411AF66BFF00462765 /* systemInformationByCommandLine.m */; };
 		3B41968D1AF66BFF00462765 /* targetProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4196441AF66BFF00462765 /* targetProxy.m */; };
 		3B41968E1AF66BFF00462765 /* threadpool.c in Sources */ = {isa = PBXBuildFile; fileRef = 3B4196461AF66BFF00462765 /* threadpool.c */; };
+		3B4196921AF672B800462765 /* luaListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4196911AF672B800462765 /* luaListViewController.m */; };
+		3B4196961AF678E500462765 /* luaConfigList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4196951AF678E500462765 /* luaConfigList.m */; };
+		3B4196BC1AF67DB900462765 /* a.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3B4196BA1AF67DB900462765 /* a.lua */; };
+		3B4196BD1AF67DB900462765 /* b.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3B4196BB1AF67DB900462765 /* b.lua */; };
+		3B4196BE1AF67DC500462765 /* a.lua in copy test lua script */ = {isa = PBXBuildFile; fileRef = 3B4196BA1AF67DB900462765 /* a.lua */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3B4196BF1AF67DC500462765 /* b.lua in copy test lua script */ = {isa = PBXBuildFile; fileRef = 3B4196BB1AF67DB900462765 /* b.lua */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3B7F8DA81B96ADFA0058BE38 /* paintGradienViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F8DA71B96ADFA0058BE38 /* paintGradienViewController.m */; };
+		3B839AB71B7BA80100736A87 /* mailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B839AB61B7BA80100736A87 /* mailViewController.m */; };
+		3B9AD8721B0DCA7800DF7537 /* luaLib_setting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9AD8711B0DCA7800DF7537 /* luaLib_setting.m */; };
+		3BACF3191B034167007F30D8 /* luaEngineManager_oc.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BACF3181B034167007F30D8 /* luaEngineManager_oc.m */; };
+		3BF7572E1B424B8F00CFE399 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF7572D1B424B8F00CFE399 /* Reveal.framework */; };
 		670B5D641980FD9700C1AA98 /* GCDGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 670B5D631980FD9700C1AA98 /* GCDGeneralViewController.m */; };
 		670B5D67198102A700C1AA98 /* logViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 670B5D66198102A700C1AA98 /* logViewController.m */; };
 		671041BA1AADBFBF00FC93F2 /* CHMessageInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 671041B91AADBFBF00FC93F2 /* CHMessageInputView.m */; };
@@ -140,7 +157,41 @@
 		67FB939C1949CAF800CA43AB /* rootTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FB939B1949CAF800CA43AB /* rootTableController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3B06DFB41B0617F600BEE89C /* copy luaEngine lib */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = luaScript/stdlib;
+			dstSubfolderSpec = 7;
+			files = (
+				3B06DFB71B06182E00BEE89C /* luaEngine_MutableArray.lua in copy luaEngine lib */,
+				3B06DFB81B06182E00BEE89C /* luaEngine_runtime.lua in copy luaEngine lib */,
+			);
+			name = "copy luaEngine lib";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B4196AC1AF67C4900462765 /* copy test lua script */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = luaScript/settings;
+			dstSubfolderSpec = 7;
+			files = (
+				3B4196BE1AF67DC500462765 /* a.lua in copy test lua script */,
+				3B4196BF1AF67DC500462765 /* b.lua in copy test lua script */,
+			);
+			name = "copy test lua script";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3B06DFAE1B06038A00BEE89C /* luaEngine_MutableArray.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = luaEngine_MutableArray.lua; sourceTree = "<group>"; };
+		3B06DFAF1B06038A00BEE89C /* luaEngine_RegistedObj.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = luaEngine_RegistedObj.lua; sourceTree = "<group>"; };
+		3B06DFB21B0617B300BEE89C /* luaEngine_runtime.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = luaEngine_runtime.lua; sourceTree = "<group>"; };
+		3B06DFB51B06182E00BEE89C /* luaEngine_MutableArray.lua */ = {isa = PBXFileReference; lastKnownFileType = text; name = luaEngine_MutableArray.lua; path = yxTestAll/resource/lusScript/stdlib/luaEngine_MutableArray.lua; sourceTree = "<group>"; };
+		3B06DFB61B06182E00BEE89C /* luaEngine_runtime.lua */ = {isa = PBXFileReference; lastKnownFileType = text; name = luaEngine_runtime.lua; path = yxTestAll/resource/lusScript/stdlib/luaEngine_runtime.lua; sourceTree = "<group>"; };
+		3B294E821B8DA7E900E06883 /* dynamicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dynamicViewController.h; sourceTree = "<group>"; };
+		3B294E831B8DA7E900E06883 /* dynamicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dynamicViewController.m; sourceTree = "<group>"; };
 		3B4195A01AF66BFF00462765 /* arrayOnThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = arrayOnThread.h; sourceTree = "<group>"; };
 		3B4195A11AF66BFF00462765 /* arrayOnThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = arrayOnThread.m; sourceTree = "<group>"; };
 		3B4195A31AF66BFF00462765 /* calculate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = calculate.c; sourceTree = "<group>"; };
@@ -282,6 +333,22 @@
 		3B4196441AF66BFF00462765 /* targetProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = targetProxy.m; sourceTree = "<group>"; };
 		3B4196461AF66BFF00462765 /* threadpool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = threadpool.c; sourceTree = "<group>"; };
 		3B4196471AF66BFF00462765 /* threadpool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = threadpool.h; sourceTree = "<group>"; };
+		3B4196901AF672B800462765 /* luaListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = luaListViewController.h; sourceTree = "<group>"; };
+		3B4196911AF672B800462765 /* luaListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = luaListViewController.m; sourceTree = "<group>"; };
+		3B4196941AF678E500462765 /* luaConfigList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = luaConfigList.h; sourceTree = "<group>"; };
+		3B4196951AF678E500462765 /* luaConfigList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = luaConfigList.m; sourceTree = "<group>"; };
+		3B4196BA1AF67DB900462765 /* a.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = a.lua; sourceTree = "<group>"; };
+		3B4196BB1AF67DB900462765 /* b.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = b.lua; sourceTree = "<group>"; };
+		3B7F8DA61B96ADFA0058BE38 /* paintGradienViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = paintGradienViewController.h; sourceTree = "<group>"; };
+		3B7F8DA71B96ADFA0058BE38 /* paintGradienViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = paintGradienViewController.m; sourceTree = "<group>"; };
+		3B839AB51B7BA80100736A87 /* mailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mailViewController.h; sourceTree = "<group>"; };
+		3B839AB61B7BA80100736A87 /* mailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mailViewController.m; sourceTree = "<group>"; };
+		3B9AD8701B0DCA7800DF7537 /* luaLib_setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = luaLib_setting.h; sourceTree = "<group>"; };
+		3B9AD8711B0DCA7800DF7537 /* luaLib_setting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = luaLib_setting.m; sourceTree = "<group>"; };
+		3BACF3171B034167007F30D8 /* luaEngineManager_oc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = luaEngineManager_oc.h; sourceTree = "<group>"; };
+		3BACF3181B034167007F30D8 /* luaEngineManager_oc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = luaEngineManager_oc.m; sourceTree = "<group>"; };
+		3BF7572A1B424B0A00CFE399 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		3BF7572D1B424B8F00CFE399 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		670B5D621980FD9700C1AA98 /* GCDGeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGeneralViewController.h; sourceTree = "<group>"; };
 		670B5D631980FD9700C1AA98 /* GCDGeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGeneralViewController.m; sourceTree = "<group>"; };
 		670B5D65198102A700C1AA98 /* logViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logViewController.h; sourceTree = "<group>"; };
@@ -394,6 +461,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BF7572E1B424B8F00CFE399 /* Reveal.framework in Frameworks */,
 				67378CDD19654087002E6BA4 /* CoreText.framework in Frameworks */,
 				675A009519499A200043EC35 /* CoreGraphics.framework in Frameworks */,
 				675A009719499A200043EC35 /* UIKit.framework in Frameworks */,
@@ -404,6 +472,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B06DFAD1B06038A00BEE89C /* stdlib */ = {
+			isa = PBXGroup;
+			children = (
+				3B06DFAE1B06038A00BEE89C /* luaEngine_MutableArray.lua */,
+				3B06DFAF1B06038A00BEE89C /* luaEngine_RegistedObj.lua */,
+				3B06DFB21B0617B300BEE89C /* luaEngine_runtime.lua */,
+			);
+			path = stdlib;
+			sourceTree = "<group>";
+		};
+		3B294E811B8DA78900E06883 /* Dynamics */ = {
+			isa = PBXGroup;
+			children = (
+				3B294E821B8DA7E900E06883 /* dynamicViewController.h */,
+				3B294E831B8DA7E900E06883 /* dynamicViewController.m */,
+			);
+			name = Dynamics;
+			sourceTree = "<group>";
+		};
 		3B41959E1AF66BFF00462765 /* ClientLib */ = {
 			isa = PBXGroup;
 			children = (
@@ -578,6 +665,8 @@
 				3B4195D61AF66BFF00462765 /* lua */,
 				3B4196121AF66BFF00462765 /* luaEngine_oc.h */,
 				3B4196131AF66BFF00462765 /* luaEngine_oc.m */,
+				3BACF3171B034167007F30D8 /* luaEngineManager_oc.h */,
+				3BACF3181B034167007F30D8 /* luaEngineManager_oc.m */,
 			);
 			path = luaEngine;
 			sourceTree = "<group>";
@@ -768,6 +857,65 @@
 			path = threadpool;
 			sourceTree = "<group>";
 		};
+		3B41968F1AF6729D00462765 /* lua */ = {
+			isa = PBXGroup;
+			children = (
+				3B4196AD1AF67C8500462765 /* lusScript */,
+				3B4196931AF678A700462765 /* setting */,
+			);
+			name = lua;
+			sourceTree = "<group>";
+		};
+		3B4196931AF678A700462765 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				3B4196901AF672B800462765 /* luaListViewController.h */,
+				3B4196911AF672B800462765 /* luaListViewController.m */,
+				3B4196941AF678E500462765 /* luaConfigList.h */,
+				3B4196951AF678E500462765 /* luaConfigList.m */,
+				3B9AD8701B0DCA7800DF7537 /* luaLib_setting.h */,
+				3B9AD8711B0DCA7800DF7537 /* luaLib_setting.m */,
+			);
+			name = setting;
+			sourceTree = "<group>";
+		};
+		3B4196AD1AF67C8500462765 /* lusScript */ = {
+			isa = PBXGroup;
+			children = (
+				3B06DFAD1B06038A00BEE89C /* stdlib */,
+				3B4196B91AF67DB900462765 /* settings */,
+			);
+			name = lusScript;
+			path = resource/lusScript;
+			sourceTree = "<group>";
+		};
+		3B4196B91AF67DB900462765 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				3B4196BA1AF67DB900462765 /* a.lua */,
+				3B4196BB1AF67DB900462765 /* b.lua */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
+		3B7F8DA51B96AD0B0058BE38 /* paint */ = {
+			isa = PBXGroup;
+			children = (
+				3B7F8DA61B96ADFA0058BE38 /* paintGradienViewController.h */,
+				3B7F8DA71B96ADFA0058BE38 /* paintGradienViewController.m */,
+			);
+			name = paint;
+			sourceTree = "<group>";
+		};
+		3B839AB41B7BA7CC00736A87 /* mail */ = {
+			isa = PBXGroup;
+			children = (
+				3B839AB51B7BA80100736A87 /* mailViewController.h */,
+				3B839AB61B7BA80100736A87 /* mailViewController.m */,
+			);
+			name = mail;
+			sourceTree = "<group>";
+		};
 		670B5D681981057200C1AA98 /* logController */ = {
 			isa = PBXGroup;
 			children = (
@@ -909,6 +1057,9 @@
 		675A008619499A200043EC35 = {
 			isa = PBXGroup;
 			children = (
+				3BF7572A1B424B0A00CFE399 /* Reveal.framework */,
+				3B06DFB51B06182E00BEE89C /* luaEngine_MutableArray.lua */,
+				3B06DFB61B06182E00BEE89C /* luaEngine_runtime.lua */,
 				675A009819499A200043EC35 /* yxTestAll */,
 				675A009119499A200043EC35 /* Frameworks */,
 				675A009019499A200043EC35 /* Products */,
@@ -926,6 +1077,7 @@
 		675A009119499A200043EC35 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3BF7572D1B424B8F00CFE399 /* Reveal.framework */,
 				67378CDC19654087002E6BA4 /* CoreText.framework */,
 				675A009219499A200043EC35 /* Foundation.framework */,
 				675A009419499A200043EC35 /* CoreGraphics.framework */,
@@ -963,6 +1115,8 @@
 		67684CC4196AF7080036F5C7 /* codeSnippet */ = {
 			isa = PBXGroup;
 			children = (
+				3B7F8DA51B96AD0B0058BE38 /* paint */,
+				3B41968F1AF6729D00462765 /* lua */,
 				6724EA701A4120B500685069 /* Debug */,
 				67B1F3B01A2F2393000F4372 /* String */,
 				67684CC5196AF7150036F5C7 /* GCD */,
@@ -984,6 +1138,8 @@
 		6780AD701952E6A100596708 /* basic */ = {
 			isa = PBXGroup;
 			children = (
+				3B294E811B8DA78900E06883 /* Dynamics */,
+				3B839AB41B7BA7CC00736A87 /* mail */,
 				67F6177319645F1700B41FD2 /* string */,
 				67EFA2111953440A004CF41E /* authorization */,
 				67EFA20D19533B16004CF41E /* imagePicker */,
@@ -1138,6 +1294,8 @@
 				675A008B19499A200043EC35 /* Sources */,
 				675A008C19499A200043EC35 /* Frameworks */,
 				675A008D19499A200043EC35 /* Resources */,
+				3B4196AC1AF67C4900462765 /* copy test lua script */,
+				3B06DFB41B0617F600BEE89C /* copy luaEngine lib */,
 			);
 			buildRules = (
 			);
@@ -1181,11 +1339,16 @@
 			files = (
 				671154D219505DDB00A2EE17 /* tomorrow_background@920.png in Resources */,
 				67D1CE941AA5B4A100F5812E /* account_arrow_go back.png in Resources */,
+				3B06DFB31B0617B300BEE89C /* luaEngine_runtime.lua in Resources */,
 				67D1CE951AA5B4A100F5812E /* account_arrow_go back@2x.png in Resources */,
+				3B06DFB01B06038A00BEE89C /* luaEngine_MutableArray.lua in Resources */,
+				3B4196BD1AF67DB900462765 /* b.lua in Resources */,
 				67ED283F1A618BDB000FF3BB /* popOver.png in Resources */,
 				67C869861AA7229E004A5374 /* check_box_at.png in Resources */,
 				67D1CE971AA5B4A100F5812E /* account_confirm_check@2x.png in Resources */,
+				3B4196BC1AF67DB900462765 /* a.lua in Resources */,
 				67BD78BD1A42F76C009E6987 /* NSLogger.app in Resources */,
+				3B06DFB11B06038A00BEE89C /* luaEngine_RegistedObj.lua in Resources */,
 				67378CDB19653EB2002E6BA4 /* d_aini@2x.png in Resources */,
 				67485300194EEEDE00AD58C2 /* moduleList.plist in Resources */,
 				675A009D19499A200043EC35 /* InfoPlist.strings in Resources */,
@@ -1220,6 +1383,7 @@
 				671154CF19503A7E00A2EE17 /* Environment.m in Sources */,
 				67A7C08C1A448777004A3AB5 /* Device.m in Sources */,
 				3B4196761AF66BFF00462765 /* ltm.c in Sources */,
+				3B4196921AF672B800462765 /* luaListViewController.m in Sources */,
 				3B4196641AF66BFF00462765 /* ldump.c in Sources */,
 				3B4196601AF66BFF00462765 /* lctype.c in Sources */,
 				3B4196821AF66BFF00462765 /* client_engine.c in Sources */,
@@ -1231,12 +1395,15 @@
 				3B4196771AF66BFF00462765 /* lua.c in Sources */,
 				67D1410A1AA4BB410091393B /* messageViewController.m in Sources */,
 				3B41968B1AF66BFF00462765 /* SystemInfo.m in Sources */,
+				3B9AD8721B0DCA7800DF7537 /* luaLib_setting.m in Sources */,
 				67A7C08F1A45C1D2004A3AB5 /* runtime.m in Sources */,
 				67684CC8196AF73D0036F5C7 /* snippetDispatchSource.m in Sources */,
 				3B41966F1AF66BFF00462765 /* loslib.c in Sources */,
+				3BACF3191B034167007F30D8 /* luaEngineManager_oc.m in Sources */,
 				3B41964F1AF66BFF00462765 /* errInfo.c in Sources */,
 				3B41968C1AF66BFF00462765 /* systemInformationByCommandLine.m in Sources */,
 				3B41968E1AF66BFF00462765 /* threadpool.c in Sources */,
+				3B294E841B8DA7E900E06883 /* dynamicViewController.m in Sources */,
 				67F6177619645F4E00B41FD2 /* attributeStringViewController.m in Sources */,
 				3B4196651AF66BFF00462765 /* lfunc.c in Sources */,
 				67EFA21419534472004CF41E /* AuthorizationStateController.m in Sources */,
@@ -1279,6 +1446,7 @@
 				3B4196691AF66BFF00462765 /* llex.c in Sources */,
 				3B41965F1AF66BFF00462765 /* lcorolib.c in Sources */,
 				670B5D67198102A700C1AA98 /* logViewController.m in Sources */,
+				3B4196961AF678E500462765 /* luaConfigList.m in Sources */,
 				67169AA81A5E8FFA009C057D /* helpOverlayViewController.m in Sources */,
 				674C92EE1A5EA11300E0460A /* popoverWindow.m in Sources */,
 				3B41966E1AF66BFF00462765 /* lopcodes.c in Sources */,
@@ -1286,6 +1454,7 @@
 				67BD78BE1A42F76C009E6987 /* README.markdown in Sources */,
 				67FB299319865C19007A425C /* logLineView.m in Sources */,
 				3B41968D1AF66BFF00462765 /* targetProxy.m in Sources */,
+				3B839AB71B7BA80100736A87 /* mailViewController.m in Sources */,
 				3B41964B1AF66BFF00462765 /* cupEnding.c in Sources */,
 				67FB939C1949CAF800CA43AB /* rootTableController.m in Sources */,
 				3B4196521AF66BFF00462765 /* hash.c in Sources */,
@@ -1299,6 +1468,7 @@
 				3B4196841AF66BFF00462765 /* remoteCallServer.m in Sources */,
 				67EFA21019533B69004CF41E /* cameraPickerController.m in Sources */,
 				3B4196681AF66BFF00462765 /* liolib.c in Sources */,
+				3B7F8DA81B96ADFA0058BE38 /* paintGradienViewController.m in Sources */,
 				3B4196481AF66BFF00462765 /* arrayOnThread.m in Sources */,
 				3B4196661AF66BFF00462765 /* lgc.c in Sources */,
 				3B41967D1AF66BFF00462765 /* md5.c in Sources */,
@@ -1410,14 +1580,29 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Mills (Q3ZVH7FKX4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Mills (PS5HCD94BC)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "yxTestAll/yxTestAll-Prefix.pch";
 				GENERATE_PROFILING_CODE = YES;
 				INFOPLIST_FILE = "yxTestAll/yxTestAll-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_NAME = yxTestAll;
-				PROVISIONING_PROFILE = "468fed2f-24e1-4b5d-a403-ddf022362643";
+				PROVISIONING_PROFILE = "08d1c6f3-5abd-4fa3-a375-33531e2ad5a5";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1427,13 +1612,28 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Mills (Q3ZVH7FKX4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Mills (PS5HCD94BC)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "yxTestAll/yxTestAll-Prefix.pch";
 				INFOPLIST_FILE = "yxTestAll/yxTestAll-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_NAME = yxTestAll;
-				PROVISIONING_PROFILE = "468fed2f-24e1-4b5d-a403-ddf022362643";
+				PROVISIONING_PROFILE = "08d1c6f3-5abd-4fa3-a375-33531e2ad5a5";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

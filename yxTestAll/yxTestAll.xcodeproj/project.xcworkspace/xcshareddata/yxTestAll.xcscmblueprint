@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "C586FA2A218A97E6A9FEF380DD8EA1E4332795DF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "cc103f69-46c8-dd11-bfa8-00170851c328++4832" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "C586FA2A218A97E6A9FEF380DD8EA1E4332795DF" : 0,
+    "cc103f69-46c8-dd11-bfa8-00170851c328++4832" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "37B92B88-0D0A-4A72-BEC5-B1FAEBEE8FBA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "C586FA2A218A97E6A9FEF380DD8EA1E4332795DF" : "yxTestAll",
+    "cc103f69-46c8-dd11-bfa8-00170851c328++4832" : "yxTestAll\/yxTestAll\/yxTestAll\/ClientLib\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "yxTestAll",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "yxTestAll\/yxTestAll.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/magiclyx\/yxTestAll",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C586FA2A218A97E6A9FEF380DD8EA1E4332795DF"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/360.src.corp.qihoo.net\/svn",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "cc103f69-46c8-dd11-bfa8-00170851c328++4832"
+    }
+  ]
+}
